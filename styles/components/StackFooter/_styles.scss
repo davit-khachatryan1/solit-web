@@ -1,0 +1,277 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-stack-footer-styles {
+  .footer {
+    bottom: 0;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+    left: 0;
+    max-width: none;
+    padding: calcVW(64);
+    position: fixed;
+    transform: translateY(150%);
+    transition: margin-bottom 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    z-index: 999;
+    transform: translateY(0);
+    height: max-content;
+    background-color: rgb(255, 255, 255);
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    justify-content: space-between;
+
+    .closeIcon {
+      position: absolute;
+      top: calcVW(16);
+      right: calcVW(16);
+      cursor: pointer;
+    }
+
+    .footerContent {
+      display: flex;
+      flex-direction: column;
+      padding: 0 calcVW(32);
+      position: relative;
+
+      .footerTitle {
+        @include font-style(
+          calcVW(36),
+          variables.$fw-500,
+          calcVW(44),
+          variables.$black
+        );
+        position: relative;
+        z-index: 11;
+
+        @media (max-width: 1024px) {
+          @include font-style(
+            calcVWT(30),
+            variables.$fw-700,
+            normal,
+            variables.$black
+          );
+          position: relative;
+          z-index: 11;
+        }
+
+        @media (max-width: 576px) {
+          @include font-style(
+            calcVWM(20),
+            variables.$fw-700,
+            calcVWM(24),
+            variables.$black
+          );
+        }
+      }
+
+      .items {
+        display: flex;
+        gap: calcVW(10);
+        max-width: calcVW(1545);
+        overflow-y: auto;
+
+        .itemWrapper {
+          display: flex;
+          align-items: center;
+          gap: calcVW(8);
+          width: max-content;
+          padding: calcVW(5);
+
+          .item {
+            @include font-style(
+              calcVW(20),
+              variables.$fw-500,
+              normal,
+              variables.$black
+            );
+
+            @media (max-width: 1024px) {
+              @include font-style(
+                calcVWT(14),
+                variables.$fw-700,
+                calcVWT(19),
+                variables.$black
+              );
+            }
+
+            @media (max-width: 576px) {
+              @include font-style(
+                calcVWM(14),
+                variables.$fw-700,
+                calcVWM(19),
+                variables.$black
+              );
+            }
+          }
+
+          .icon {
+            cursor: pointer;
+            width: calcVW(12);
+            height: calcVW(12);
+
+            @media (max-width: 1024px) {
+              width: calcVWT(12);
+              height: calcVWT(12);
+            }
+
+            @media (max-width: 576px) {
+              width: calcVWM(12);
+              height: calcVWM(12);
+            }
+          }
+        }
+
+        @media (max-width: 576px) {
+          gap: calcVWM(8);
+        }
+      }
+
+      .shadow {
+        width: calcVW(1545);
+        height: 0;
+        position: absolute;
+        z-index: 10;
+        box-shadow: 0 calcVW(-18) calcVW(20) calcVW(15) white;
+        top: calcVW(65);
+      }
+
+      .scrollElement {
+        max-height: calcVW(118);
+        overflow: auto;
+        padding-top: calcVW(16);
+      }
+
+      @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+        .shadow {
+          width: calcVWL(1077);
+          box-shadow: 0 calcVWL(-18) calcVWL(20) calcVWL(15) white;
+          top: calcVWL(45);
+        }
+
+        .scrollElement {
+          max-height: calcVWL(118);
+          padding-top: calcVWL(16);
+        }
+      }
+    }
+
+    .buttonWrapper {
+      @media (max-width: 1024px) {
+      }
+
+      @media (max-width: 576px) {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: auto;
+
+        button {
+          width: unset;
+          height: unset;
+          padding: calcVWM(8) calcVWM(32);
+          border-radius: calcVWM(8);
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .items {
+        max-width: calcVWL(1150) !important;
+        column-gap: calcVWL(10);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      padding: calcVWT(32) calcVWT(64);
+      height: max-content;
+      transition: 0.3s;
+
+      .footerContent {
+        gap: calcVWT(0);
+        padding-left: calcVWT(32);
+        position: relative;
+        padding-top: calcVWT(15);
+
+        .items {
+          column-gap: calcVWT(8);
+          row-gap: calcVWT(16);
+          max-width: calcVWT(620);
+        }
+
+        .scrollElement {
+          max-height: calcVWT(104);
+          overflow: auto;
+          padding-top: calcVWT(24);
+        }
+
+        .shadow {
+          box-shadow: 0 calcVWT(-10) calcVWT(20) calcVWT(13) white;
+          top: calcVWT(65);
+          width: calcVWT(650);
+        }
+      }
+
+      .closeIcon {
+        position: absolute;
+        top: calcVWT(16);
+        right: calcVWT(16);
+        z-index: 11;
+      }
+    }
+
+    @media (max-width: 576px) {
+      transition: 0.3s;
+      padding: calcVWM(16);
+      gap: calcVWM(16);
+
+      .footerContent {
+        gap: calcVWM(16);
+        padding: 0;
+        row-gap: 0;
+
+        .scrollElement {
+          max-height: calcVWM(145);
+          padding-top: calcVWM(24);
+        }
+
+        .items {
+          padding: 0;
+          gap: calcVWM(16);
+          max-width: 100%;
+          padding-bottom: calcVWM(35);
+        }
+
+        .shadow {
+          box-shadow: 0 calcVWM(-18) calcVWM(20) calcVWM(20) white;
+          top: calcVWM(48);
+          width: 100%;
+        }
+      }
+
+      .closeIcon {
+        transition: 0.3s;
+        position: absolute;
+        top: calcVWM(16);
+        right: calcVWM(16);
+        rotate: 0deg;
+      }
+    }
+  }
+
+  .transition {
+    @media (max-width: 1025px) {
+      transition: 0.3s;
+      height: calcVWT(108);
+      overflow: hidden;
+
+      .closeIcon {
+        transition: 0.3s;
+        rotate: 180deg;
+      }
+    }
+
+    @media (max-width: 575px) {
+      height: calcVWM(55);
+    }
+  }
+}

@@ -1,0 +1,987 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-process-styles {
+  .container {
+    .snackMobile {
+      display: none;
+    }
+
+    .snack {
+      height: calcVW(784);
+      margin: calcVW(80) 0;
+      flex-wrap: wrap;
+      position: relative;
+
+      .borderRound {
+        min-width: calcVW(32);
+        height: calcVW(32);
+        border: 2px solid variables.$white;
+        border-radius: calcVW(32);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .round {
+          min-width: calcVW(16);
+          height: calcVW(16);
+          border-radius: calcVW(16);
+          background: variables.$white;
+        }
+
+        .info {
+          position: absolute;
+        }
+      }
+
+      .borderRound1 {
+        margin-left: calcVW(190);
+      }
+
+      .line {
+        min-width: calcVW(373);
+        height: 2px;
+        background: variables.$white;
+        margin-top: calcVW(15);
+      }
+
+      .line1 {
+        margin-top: calcVW(15);
+      }
+
+      .line2 {
+        min-width: calcVW(610);
+        margin-top: calcVW(15);
+      }
+
+      .oval1 {
+        border-top: 2px solid variables.$white;
+        border-right: 2px solid variables.$white;
+        border-radius: 0 calcVW(50) 0 0;
+        min-width: calcVW(43);
+        margin-top: calcVW(15);
+        height: calcVW(44);
+      }
+
+      .line3 {
+        min-width: 2px;
+        min-height: calcVW(184);
+        width: 2px;
+        margin-top: 0;
+        margin-left: auto;
+      }
+
+      .oval2 {
+        border-bottom: 2px solid variables.$white;
+        border-right: 2px solid variables.$white;
+        border-radius: 0 0 calcVW(50) 0;
+        min-width: calcVW(43);
+        width: calcVW(43);
+        height: calcVW(45);
+      }
+
+      .oval3 {
+        border-top: 2px solid variables.$white;
+        border-left: 2px solid variables.$white;
+        border-radius: calcVW(50) 0 0 0;
+        min-width: calcVW(42.45);
+        height: calcVW(45);
+        margin-top: calcVW(42.45);
+      }
+
+      .line4 {
+        min-width: calcVW(186);
+        margin-top: calcVW(43);
+      }
+
+      .borderRound2 {
+        margin-top: calcVW(28);
+      }
+
+      .line5 {
+        min-width: calcVW(372);
+        margin-top: calcVW(42.45);
+      }
+
+      .borderRound3 {
+        margin-top: calcVW(28);
+      }
+
+      .line6 {
+        min-width: calcVW(573);
+        margin-top: calcVW(42.45);
+      }
+
+      .line7 {
+        min-width: 2px;
+        width: 2px;
+        min-height: calcVW(184);
+        margin-top: 0;
+      }
+
+      .oval4 {
+        border-bottom: 2px solid variables.$white;
+        border-left: 2px solid variables.$white;
+        border-radius: 0 0 0 calcVW(50);
+        min-width: calcVW(43);
+        height: calcVW(44);
+      }
+
+      .line8 {
+        min-width: calcVW(183);
+        height: 2px;
+        margin-top: calcVW(42.45);
+      }
+
+      .borderRound4 {
+        margin-top: calcVW(28);
+      }
+
+      .line9 {
+        min-width: calcVW(376);
+        height: 2px;
+        margin-top: calcVW(42.45);
+      }
+
+      .borderRound5 {
+        margin-top: calcVW(28);
+      }
+
+
+      .part1 {
+        display: flex;
+        overflow: hidden;
+        width: 0;
+      }
+
+      .part2 {
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .part3 {
+        display: flex;
+        overflow: hidden;
+        width: 0;
+        margin-left: auto;
+      }
+
+      .part4 {
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .part5 {
+        display: flex;
+        overflow: hidden;
+        width: 0;
+      }
+
+      .snackBlue {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+
+        .borderRound {
+          border: 2px solid variables.$light-blue;
+
+          .round {
+            background: variables.$light-blue;
+          }
+        }
+
+        .line {
+          background: variables.$light-blue;
+        }
+
+        .oval1 {
+          border-top: 2px solid variables.$light-blue;
+          border-right: 2px solid variables.$light-blue;
+        }
+
+        .oval2 {
+          border-bottom: 2px solid variables.$light-blue;
+          border-right: 2px solid variables.$light-blue;
+        }
+
+        .oval3 {
+          border-top: 2px solid variables.$light-blue;
+          border-left: 2px solid variables.$light-blue;
+        }
+
+        .oval4 {
+          border-bottom: 2px solid variables.$light-blue;
+          border-left: 2px solid variables.$light-blue;
+        }
+      }
+
+      .snackText {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+
+        .borderRound {
+          border: 2px solid transparent;
+          display: flex;
+          justify-content: center;
+
+          .round {
+            background: transparent;
+          }
+
+          .info {
+            height: calcVW(277);
+            width: calcVW(405);
+            margin-top: calcVW(172);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .titleInfo {
+              @include font-style(calcVW(24),
+                variables.$fw-600,
+                normal);
+              margin: 0;
+              margin-bottom: calcVW(80);
+              text-align: center;
+              opacity: 0;
+            }
+
+            .descriptionInfo {
+              @include font-style(calcVW(18),
+                variables.$fw-400,
+                normal);
+              margin: 0;
+              width: calcVW(277);
+              opacity: 0;
+            }
+          }
+        }
+
+        .line {
+          background: transparent;
+        }
+
+        .oval1 {
+          border-top: 2px solid transparent;
+          border-right: 2px solid transparent;
+        }
+
+        .oval2 {
+          border-bottom: 2px solid transparent;
+          border-right: 2px solid transparent;
+        }
+
+        .oval3 {
+          border-top: 2px solid transparent;
+          border-left: 2px solid transparent;
+        }
+
+        .oval4 {
+          border-bottom: 2px solid transparent;
+          border-left: 2px solid transparent;
+        }
+
+        .part1 {
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part2 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part3 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part4 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part5 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+
+      .snack {
+        height: calcVWL(784);
+        margin: calcVWL(80) 0;
+        flex-wrap: wrap;
+        position: relative;
+  
+        .borderRound {
+          min-width: calcVWL(32);
+          height: calcVWL(32);
+          border: 2px solid variables.$white;
+          border-radius: calcVWL(32);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+  
+          .round {
+            min-width: calcVWL(16);
+            height: calcVWL(16);
+            border-radius: calcVWL(16);
+            background: variables.$white;
+          }
+  
+          .info {
+            position: absolute;
+          }
+        }
+  
+        .borderRound1 {
+          margin-left: calcVWL(190);
+        }
+  
+        .line {
+          min-width: calcVWL(373);
+          height: 2px;
+          background: variables.$white;
+          margin-top: calcVWL(15);
+        }
+  
+        .line1 {
+          margin-top: calcVWL(15);
+        }
+  
+        .line2 {
+          min-width: calcVWL(610);
+          margin-top: calcVWL(15);
+        }
+  
+        .oval1 {
+          border-top: 2px solid variables.$white;
+          border-right: 2px solid variables.$white;
+          border-radius: 0 calcVWL(50) 0 0;
+          min-width: calcVWL(43);
+          margin-top: calcVWL(15);
+          height: calcVWL(44);
+        }
+  
+        .line3 {
+          min-width: 2px;
+          min-height: calcVWL(184);
+          width: 2px;
+          margin-top: 0;
+          margin-left: auto;
+        }
+  
+        .oval2 {
+          border-bottom: 2px solid variables.$white;
+          border-right: 2px solid variables.$white;
+          border-radius: 0 0 calcVWL(50) 0;
+          min-width: calcVWL(43.45);
+          width: calcVWL(43);
+          height: calcVWL(45);
+        }
+  
+        .oval3 {
+          border-top: 2px solid variables.$white;
+          border-left: 2px solid variables.$white;
+          border-radius: calcVWL(50) 0 0 0;
+          min-width: calcVWL(42.45);
+          height: calcVWL(45);
+          margin-top: calcVWL(42.45);
+        }
+  
+        .line4 {
+          min-width: calcVWL(185);
+          margin-top: calcVWL(42.45);
+        }
+  
+        .borderRound2 {
+          margin-top: calcVWL(28);
+        }
+  
+        .line5 {
+          min-width: calcVWL(372);
+          margin-top: calcVWL(42.45);
+        }
+  
+        .borderRound3 {
+          margin-top: calcVWL(28);
+        }
+  
+        .line6 {
+          min-width: calcVWL(573);
+          margin-top: calcVWL(42.45);
+        }
+  
+        .line7 {
+          min-width: 2px;
+          width: 2px;
+          min-height: calcVWL(184);
+          margin-top: 0;
+        }
+  
+        .oval4 {
+          border-bottom: 2px solid variables.$white;
+          border-left: 2px solid variables.$white;
+          border-radius: 0 0 0 calcVWL(50);
+          min-width: calcVWL(43);
+          height: calcVWL(44);
+        }
+  
+        .line8 {
+          min-width: calcVWL(183);
+          height: 2px;
+          margin-top: calcVWL(42.45);
+        }
+  
+        .borderRound4 {
+          margin-top: calcVWL(28);
+        }
+  
+        .line9 {
+          min-width: calcVWL(376);
+          height: 2px;
+          margin-top: calcVWL(42.45);
+        }
+  
+        .borderRound5 {
+          margin-top: calcVWL(28);
+        }
+  
+  
+        .part1 {
+          display: flex;
+          overflow: hidden;
+          width: 0;
+        }
+  
+        .part2 {
+          height: 0;
+          overflow: hidden;
+          width: 100%;
+        }
+  
+        .part3 {
+          display: flex;
+          overflow: hidden;
+          width: 0;
+          margin-left: auto;
+          max-width: 100%;
+        }
+  
+        .part4 {
+          height: 0;
+          overflow: hidden;
+          width: 100%;
+        }
+  
+        .part5 {
+          display: flex;
+          overflow: hidden;
+          width: 0;
+        }
+  
+        .snackBlue {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+  
+  
+          .borderRound {
+            border: 2px solid variables.$light-blue;
+  
+            .round {
+              background: variables.$light-blue;
+            }
+          }
+  
+          .line {
+            background: variables.$light-blue;
+          }
+  
+          .oval1 {
+            border-top: 2px solid variables.$light-blue;
+            border-right: 2px solid variables.$light-blue;
+          }
+  
+          .oval2 {
+            border-bottom: 2px solid variables.$light-blue;
+            border-right: 2px solid variables.$light-blue;
+          }
+  
+          .oval3 {
+            border-top: 2px solid variables.$light-blue;
+            border-left: 2px solid variables.$light-blue;
+          }
+  
+          .oval4 {
+            border-bottom: 2px solid variables.$light-blue;
+            border-left: 2px solid variables.$light-blue;
+          }
+        }
+  
+        .snackText {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+  
+  
+          .borderRound {
+            border: 2px solid transparent;
+            display: flex;
+            justify-content: center;
+  
+            .round {
+              background: transparent;
+            }
+  
+            .info {
+              height: calcVWL(277);
+              width: calcVWL(405);
+              margin-top: calcVWL(172);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+  
+              .titleInfo {
+                @include font-style(calcVWL(24),
+                  variables.$fw-600,
+                  normal);
+                margin: 0;
+                margin-bottom: calcVWL(80);
+                text-align: center;
+                opacity: 0;
+              }
+  
+              .descriptionInfo {
+                @include font-style(calcVWL(18),
+                  variables.$fw-400,
+                  normal);
+                margin: 0;
+                width: calcVWL(277);
+                opacity: 0;
+              }
+            }
+          }
+  
+          .line {
+            background: transparent;
+          }
+  
+          .oval1 {
+            border-top: 2px solid transparent;
+            border-right: 2px solid transparent;
+          }
+  
+          .oval2 {
+            border-bottom: 2px solid transparent;
+            border-right: 2px solid transparent;
+          }
+  
+          .oval3 {
+            border-top: 2px solid transparent;
+            border-left: 2px solid transparent;
+          }
+  
+          .oval4 {
+            border-bottom: 2px solid transparent;
+            border-left: 2px solid transparent;
+          }
+  
+          .part1 {
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part2 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part3 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part4 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part5 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+
+      .snack {
+        height: calcVWT(784);
+        margin: calcVWT(80) 0;
+
+        .borderRound {
+          min-width: calcVWT(32);
+          height: calcVWT(32);
+          border-radius: calcVWT(32);
+
+          .round {
+            min-width: calcVWT(16);
+            height: calcVWT(16);
+            border-radius: calcVWT(16);
+          }
+
+        }
+
+        .borderRound1 {
+          margin-left: calcVWT(190);
+        }
+
+        .line {
+          min-width: calcVWT(373);
+          height: 2px;
+          margin-top: calcVWT(15);
+        }
+
+        .line1 {
+          margin-top: calcVWT(15);
+        }
+
+        .line2 {
+          min-width: calcVWT(257);
+          width: calcVWT(610);
+          margin-top: calcVWT(15);
+        }
+
+        .oval1 {
+          border-radius: 0 calcVWT(50) 0 0;
+          min-width: calcVWT(44);
+          margin-top: calcVWT(15);
+          height: calcVWT(44);
+        }
+
+        .line3 {
+          min-width: 2px;
+          min-height: calcVWT(184);
+          margin-left: auto;
+          margin-top: 0;
+        }
+
+        .oval2 {
+          border-radius: 0 0 calcVWT(50) 0;
+          min-width: calcVWT(44);
+          height: calcVWT(44);
+        }
+
+        .oval3 {
+          border-radius: calcVWT(50) 0 0 0;
+          min-width: calcVWT(44);
+          height: calcVWT(44);
+          margin-top: calcVWT(42.45);
+        }
+
+        .line4 {
+          min-width: calcVWT(186);
+          margin-top: calcVWT(42.45);
+        }
+
+        .borderRound2 {
+          margin-top: calcVWT(28);
+        }
+
+        .line5 {
+          min-width: calcVWT(372);
+          margin-top: calcVWT(42.45);
+        }
+
+        .borderRound3 {
+          margin-top: calcVWT(28);
+        }
+
+        .line6 {
+          min-width: calcVWT(218);
+          margin-top: calcVWT(42.45);
+        }
+
+        .line7 {
+          min-width: 2px;
+          width: 2px;
+          min-height: calcVWT(184);
+          margin-top: 0;
+        }
+
+        .oval4 {
+          border-radius: 0 0 0 calcVWT(50);
+          min-width: calcVWT(44);
+          height: calcVWT(44);
+        }
+
+        .line8 {
+          min-width: calcVWT(183);
+          height: 2px;
+          margin-top: calcVWT(42.45);
+        }
+
+        .borderRound4 {
+          margin-top: calcVWT(28);
+        }
+
+        .line9 {
+          min-width: calcVWT(376);
+          height: 2px;
+          margin-top: calcVWT(42.45);
+        }
+
+        .borderRound5 {
+          margin-top: calcVWT(28);
+        }
+
+
+        .part1 {
+          width: 0;
+          max-width: 100%;
+        }
+
+        .part2 {
+          height: 0;
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .part3 {
+          width: 0;
+        }
+
+        .part4 {
+          height: 0;
+          width: 100%;
+        }
+
+        .part5 {
+          width: 0;
+          max-width: 100%;
+        }
+
+        .snackBlue {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .snackText {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          .borderRound {
+            .info {
+              height: calcVWT(277);
+              width: calcVWT(405);
+              margin-top: calcVWT(172);
+
+              .titleInfo {
+                @include font-style(calcVWT(24),
+                  variables.$fw-600,
+                  normal);
+                margin: 0;
+                margin-bottom: calcVWT(80);
+              }
+
+              .descriptionInfo {
+                @include font-style(calcVWT(18),
+                  variables.$fw-400,
+                  normal);
+                margin: 0;
+                width: calcVWT(277);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .title {
+      @include font-style(getProcessSizes(process-title-fz),
+        variables.$fw-500,
+        getProcessSizes(process-title-lh));
+    }
+
+    .description {
+      margin-top: getProcessSizes(process-description-mt);
+      @include font-style(getProcessSizes(process-description-fz),
+        variables.$fw-400,
+        getProcessSizes(process-description-lh));
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .title {
+        @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44));
+      }
+
+      .description {
+        margin-top: calcVWL(24);
+
+        p {
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .title {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
+      }
+
+      .description {
+        margin-top: getProcessSizes(process-description-mt);
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+      }
+    }
+
+    @media (max-width: 576px) {
+      .snack {
+        display: none
+      }
+
+      .title {
+        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
+      }
+
+      .description {
+        margin-top: getProcessSizes(process-description-mt);
+        margin-bottom: calcVWM(80);
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+      }
+
+      .snackMobile {
+        position: relative;
+        display: block;
+
+        .blockMobile {
+          padding: calcVWM(16);
+        }
+
+        .titleMobile {
+          @include font-style(calcVWM(24), variables.$fw-600, calcVWM(32));
+        }
+
+        .descriptionMobile {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), rgba(255, 255, 255, 0.73));
+        }
+
+        .snackMobileShadow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          padding-right: calcVWM(15.969);
+
+          .shadowLine {
+            width: calcVWM(4);
+            background: rgba(0, 0, 0, 0.32);
+            padding-top: calcVWM(50);
+
+            .mobileLine {
+              height: calcVWM(100);
+            }
+
+            .mobileLine:nth-child(29) {
+              background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, #5E87F1 48.96%, rgba(0, 0, 0, 0.32) 100%);
+
+              filter: blur(0.5px);
+            }
+          }
+
+          .shadowElements {
+            width: inherit;
+          }
+
+          .titleMobile {
+            opacity: 0;
+            max-width: calcVWM(313);
+          }
+
+          .descriptionMobile {
+            opacity: 0;
+            max-width: calcVWM(313);
+          }
+
+          .blockMobile {
+            background: rgba(0, 0, 0, 0.72);
+            margin-left: calcVWM(10);
+          }
+
+          .blockMobile:nth-child(15) {
+            box-shadow: inset 10px 0 100px 0 rgba(0, 0, 0, 0.52), inset 0 -10px 100px 0 rgba(0, 0, 0, 0.52), inset 0 10px 100px 0 rgba(0, 0, 0, 0.52);
+            background: radial-gradient(10.26% 50% at 0% 50%, rgba(39, 65, 135, 0.73) 0%, rgba(43, 74, 154, 0.00) 100%);
+          }
+        }
+
+        .mainBlock {
+          position: absolute;
+          overflow: hidden;
+          left: calcVWM(-15.969);
+          width: calc(100% + calcVWM(31.938));
+          top: calcVWM(-2982);
+          height: calcVWM(200*30);
+
+          .blockMobile {
+            height: calcVWM(200);
+            padding: calcVWM(32) calcVWM(16) calcVWM(32) 0;
+
+            .leftPart {
+              height: 100%;
+              width: calcVWM(4);
+              margin-right: calcVWM(16);
+            }
+          }
+
+          .blockMobile:nth-child(15) {
+            .leftPart {
+              background: linear-gradient(180deg, #5e88f109 0%, #5e88f14d 48.96%, #5e88f109 100%);
+            }
+          }
+        }
+      }
+
+      .mobileBlockElement {
+        width: calc(100% + calcVWM(31.938));
+        margin-left: calcVWM(-15.969);
+        padding: 0 calcVWM(15.969);
+        overflow: hidden;
+      }
+    }
+  }
+}

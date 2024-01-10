@@ -1,0 +1,17 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$industry-sizes: (
+  main-wrapper-width: calcVW(302),
+  main-wrapper-height: calcVW(56),
+  main-wrapper-padding: calcVW(16),
+  main-wrapper-gap: calcVW(16),
+  name-specialist-fz: calcVW(14),
+  name-specialist-lh: calcVW(24),
+  more-wrapper-padding: calcVW(16),
+  more-wrapper-gap: calcVW(16),
+);
+
+@function getIndustrySizes($property) {
+  @return map-get($industry-sizes, $property);
+}

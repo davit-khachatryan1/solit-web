@@ -1,0 +1,11 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$homeMain-sizes: (
+  home-main-title-width: calcVW(851),
+  home-main-button-wrapper-mt: calcVW(24),
+);
+
+@function getHomeMainSizes($property) {
+  @return map-get($homeMain-sizes, $property);
+}

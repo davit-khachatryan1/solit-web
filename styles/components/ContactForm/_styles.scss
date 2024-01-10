@@ -1,0 +1,846 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+//To do refactor
+
+@mixin generate-contactForm-styles {
+  .contactFormWrapper {
+    display: flex;
+    gap: calcVW(52);
+
+    .contactUsImage {
+      width: 100%;
+      height: auto;
+    }
+
+    .infoSection {
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(16);
+      max-width: 50%;
+      position: relative;
+      z-index: 1;
+      width: calcVW(624);
+      padding: calcVW(32);
+
+      .title {
+        @include font-style(calcVW(36), variables.$fw-500, normal);
+      }
+
+      .info {
+        @include font-style(calcVW(18), variables.$fw-500, calcVW(24));
+      }
+    }
+
+    .infoSectionCareer {
+      width: calcVW(687);
+    }
+
+    .formWrapper {
+      width: 50%;
+      padding: calcVW(32);
+      margin-top: calcVW(24);
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: calcVW(406);
+      gap: calcVW(32);
+      row-gap: calcVW(5);
+      width: calcVW(410);
+      position: relative;
+      z-index: 1;
+
+      input:not([type="range"]) {
+        &::after {
+          display: none;
+        }
+      }
+
+      .errorMessageRight {
+        :global(.ant-form-item-explain-error) {
+          transition: 0.1s;
+          transform: translateX(5px);
+        }
+      }
+
+      .errorMessageLeft {
+        :global(.ant-form-item-explain-error) {
+          transition: 0.1s;
+          transform: translateX(-5px);
+        }
+      }
+
+      .uploadAntd {
+        width: 100%;
+
+        :global(.ant-upload-list) {
+          display: none;
+        }
+
+        :global(.ant-upload) {
+          width: 100%;
+        }
+
+        :global(.ant-input) {
+          @include font-style(
+            calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            variables.$white
+          );
+          caret-color: transparent;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .buttonWrapper {
+        button {
+          @include font-style(calcVW(13), variables.$fw-700, normal, #fff);
+        }
+      }
+
+      .suffix {
+        width: calcVW(17);
+        height: calcVW(19);
+      }
+
+      :global(.ant-form-item) {
+        margin: 0 !important;
+      }
+
+      .accept {
+        height: calcVW(50) !important;
+
+        :global(.ant-form-item-control-input-content) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: calcVW(18);
+        }
+
+        :global(.ant-form-item-explain-connected) {
+          padding-left: calcVW(65);
+        }
+
+        :global(.ant-checkbox-inner) {
+          background: transparent !important;
+          border-color: white !important;
+          width: 20px;
+          height: 20px;
+        }
+
+        :global(.ant-checkbox-checked) {
+          &::after {
+            border-color: white !important;
+          }
+        }
+
+        .acceptText {
+          @include font-style(
+            getContactFormSizes(text-fz),
+            variables.$fw-400,
+            getContactFormSizes(text-fl)
+          );
+
+          a {
+            border-bottom: 1px solid white;
+            margin-left: calcVW(5);
+            @include font-style(
+              getContactFormSizes(text-fz),
+              variables.$fw-400,
+              getContactFormSizes(text-fl)
+            );
+          }
+        }
+      }
+
+      .accept > div > div {
+        height: unset !important;
+      }
+
+      .recaptcha {
+        margin-top: calcVW(-8);
+        margin-bottom: calcVW(10.4);
+        max-width: 100%;
+      }
+
+      .uploadFile {
+        color: #e5e5e5;
+      }
+
+      :global(.ant-input-affix-wrapper-focused) {
+        border-bottom: none !important;
+      }
+
+      :global(.ant-input-affix-wrapper) {
+        z-index: 0;
+        background: transparent;
+        border-bottom: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 0;
+      }
+
+      :global(.ant-input-affix-wrapper-focused) {
+        box-shadow: none;
+      }
+
+      :global(.ant-input-suffix) {
+        position: absolute;
+        right: 0;
+        color: white;
+        bottom: 10px;
+      }
+
+      .inputSection {
+        display: flex;
+        flex-direction: column;
+        gap: calcVW(32);
+        width: 100%;
+      }
+
+      .inputSection > div > div > div {
+        height: calcVW(58);
+      }
+
+      .filled {
+        background-color: aquamarine;
+      }
+
+      .focused {
+        background-color: aqua;
+
+        :global(.ant-form-item-label) {
+          transform: translateY(-125%);
+        }
+      }
+
+      :global(.ant-input) {
+        position: relative;
+        padding: 0;
+        width: 100%;
+        outline: 0;
+        border: 0;
+        border-bottom: 1px solid #ffffff;
+        transition: box-shadow 150ms ease-out;
+        background: transparent;
+        color: #ffffff;
+
+        @include font-style(calcVW(18), variables.$fw-400, calcVW(24));
+
+        &:focus {
+          box-shadow: 0 0 0 0 transparent;
+          border-bottom: 2px solid;
+        }
+      }
+
+      :global(.ant-form-item-label) {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        color: #999;
+        background-color: transparent;
+        z-index: 10;
+        transition: transform 150ms ease-out, font-size 150ms ease-out;
+      }
+
+      .input {
+        background: transparent;
+        color: #ffffff;
+      }
+
+      :global {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          background: transparent;
+          border-color: none;
+          box-shadow: 0 2px 0 0 rgb(207, 39, 39);
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
+          background: transparent;
+          border-color: none !important;
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          border-color: none;
+        }
+
+        .ant-form-item-label > label {
+          font-size: 16px;
+          color: #ffffff;
+        }
+
+        .ant-input:focus + .ant-form-item-label > label {
+          color: blue;
+        }
+
+        .ant-input-status-error {
+          &:focus {
+            border-bottom: none;
+          }
+        }
+      }
+
+      .uploadItem {
+        position: relative;
+
+        .asPlaceholder {
+          padding-left: calcVW(30);
+        }
+
+        input[type="file"] {
+          width: 100%;
+          padding: calcVW(0) 0 calcVW(8) calcVW(30);
+          @include font-style(
+            calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            transparent !important
+          );
+          margin: 0;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .removeFile {
+          position: absolute;
+          right: 0;
+          top: calcVW(10);
+          width: max-content;
+          cursor: pointer;
+          padding-left: 10px;
+
+          img {
+            width: calcVW(20);
+            height: calcVW(20);
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+
+      .uploadedFile {
+        input[type="file"] {
+          margin-left: calcVW(-158);
+          margin-right: calcVW(158);
+          color: variables.$white !important;
+        }
+      }
+      .recaptchaForm {
+        min-height: calcVW(58);
+        margin-bottom: calcVW(18) !important;
+        margin-top: calcVW(15) !important;
+        :global(.ant-form-item-explain-error) {
+          margin-top: calcVW(-9);
+        }
+        @media (max-width: 1024px) {
+          margin-bottom: calcVWT(50) !important;
+        }
+        @media (max-width: 576px) {
+          height: calcVWM(45) !important;
+          :global(.ant-form-item-explain-error) {
+            margin-left: calcVWM(20);
+          }
+          :global(.ant-form-item-control-input-content) {
+            height: calcVWM(74);
+          }
+        }
+      }
+    }
+
+    .backImage {
+      width: calcVW(2500);
+      left: calcVW(-600);
+      position: absolute;
+      bottom: calcVW(-380);
+      height: calcVW(1800);
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      gap: calcVWL(52);
+
+      .infoSection {
+        width: calcVWL(624);
+        padding: calcVWL(32);
+        gap: calcVWL(16);
+
+        .title {
+          font-size: calcVWL(36);
+        }
+
+        .info {
+          font-size: calcVWL(18);
+          line-height: calcVWL(24);
+        }
+      }
+
+      .form {
+        max-width: calcVWL(406);
+        gap: calcVWL(32);
+        width: calcVWL(410);
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              variables.$white
+            );
+          }
+        }
+
+        .buttonWrapper {
+          button {
+            @include font-style(calcVWL(13), variables.$fw-700, normal, #fff);
+          }
+        }
+
+        .suffix {
+          width: calcVWL(17);
+          height: calcVWL(19);
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWL(18);
+            margin-top: calcVWL(-45) !important;
+          }
+
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWL(65);
+          }
+
+          .acceptText {
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+
+            a {
+              margin-left: calcVWL(5);
+              @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+            }
+          }
+        }
+
+        .recaptcha {
+          margin-top: calcVWL(-8);
+          margin-bottom: calcVWL(10.4);
+        }
+
+        :global(.ant-input-suffix) {
+          bottom: calcVWL(7);
+        }
+
+        .inputSection {
+          gap: calcVWL(32);
+        }
+
+        .inputSection > div > div > div {
+          height: calcVWL(58);
+        }
+        .inputSection {
+          label {
+            top: calcVWT(0) !important;
+          }
+        }
+
+        :global(.ant-input) {
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+        }
+
+        :global(.ant-form-item-label) {
+          top: calcVWL(10);
+        }
+
+        :global {
+          .ant-form-item-label > label {
+            font-size: calcVWL(16);
+          }
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWL(30);
+          }
+
+          input[type="file"] {
+            width: 100%;
+            padding: calcVWL(0) 0 calcVWL(8) calcVWL(30);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              transparent !important
+            );
+            margin: 0;
+          }
+
+          .removeFile {
+            img {
+              width: calcVWL(20);
+              height: calcVWL(20);
+            }
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWL(-158);
+            margin-right: calcVWL(158);
+            color: variables.$white !important;
+          }
+        }
+      }
+
+      .backImage {
+        width: calcVWL(1920);
+        left: calcVWL(-320);
+        position: absolute;
+        bottom: calcVWL(-380);
+        height: calcVWL(1380);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      gap: calcVWT(52);
+      margin-bottom: calcVWT(32);
+
+      .infoSection {
+        width: calcVWT(448);
+        padding: calcVWT(28) calcVWT(32);
+        gap: calcVWT(16);
+
+        .title {
+          font-weight: 500;
+          font-size: calcVWT(36);
+          line-height: normal;
+          color: #ffffff;
+        }
+
+        .info {
+          font-weight: 400;
+          font-size: calcVWT(18);
+          line-height: calcVWT(24);
+          color: #ffffff;
+        }
+      }
+
+      .formWrapper {
+        padding: calcVWT(28) calcVWT(34);
+        margin-top: unset;
+      }
+
+      .form {
+        max-width: unset;
+        gap: calcVWT(32);
+        width: calcVWT(384);
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              variables.$white
+            );
+          }
+        }
+
+        :global(.ant-input) {
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+          border-bottom: 1px solid #ffffff;
+          padding: 0;
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        .inputSection {
+          gap: calcVWT(32);
+        }
+
+        .inputSection > div > div > div {
+          height: calcVWT(58);
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWT(18);
+            margin-top: calcVWT(0.45) !important;
+          }
+
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWT(50);
+          }
+        }
+
+        .recaptcha {
+          margin-top: unset;
+          margin-bottom: calcVWT(12);
+        }
+
+        .suffix {
+          width: calcVWT(17);
+          height: calcVWT(19);
+        }
+
+        .accept {
+          .acceptText {
+            font-size: calcVWT(18);
+            line-height: calcVWT(24);
+
+            a {
+              margin-left: calcVWT(5);
+              font-size: calcVWT(18);
+              line-height: calcVWT(24);
+            }
+          }
+        }
+
+        :global(.ant-form-item) {
+          margin-bottom: calcVWT(20);
+        }
+
+        :global(.ant-checkbox-inner) {
+          width: calcVWT(20);
+          height: calcVWT(20);
+        }
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
+          width: calcVWT(20);
+          height: calcVWT(20);
+        }
+
+        .uploadItem {
+          input[type="file"] {
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              transparent !important
+            );
+            margin: 0;
+            height: calcVWT(26);
+          }
+
+          .removeFile {
+            top: calcVWT(10);
+
+            img {
+              width: calcVWT(20);
+              height: calcVWT(20);
+            }
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWT(-144);
+            margin-right: calcVWT(144);
+            color: white !important;
+          }
+        }
+      }
+
+      .backImage {
+        width: calcVWT(1400);
+        left: calcVWT(-234);
+        bottom: calcVWT(-380);
+        height: auto;
+        top: calcVWT(-315);
+      }
+    }
+
+    @media (max-width: 576px) {
+      margin-bottom: calcVWM(24);
+
+      .backImage {
+        width: calcVWM(1500);
+        height: calcVWM(1100);
+        left: calcVWM(-580);
+        top: calcVWM(-70);
+      }
+
+      flex-direction: column;
+      margin-top: calcVWM(40);
+
+      .infoSection {
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+
+        .title {
+          font-weight: 500;
+          font-size: calcVWM(36);
+          line-height: calcVWM(44);
+          color: #ffffff;
+        }
+
+        .info {
+          font-weight: 400;
+          font-size: calcVWM(18);
+          line-height: calcVWM(24);
+          color: #ffffff;
+        }
+      }
+
+      .formWrapper {
+        width: 100%;
+        padding: unset;
+        margin-top: calcVWM(32);
+      }
+
+      .form {
+        width: 100%;
+        max-width: 100%;
+        gap: calcVWM(35);
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              variables.$white
+            );
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: calcVWM(30);
+          }
+        }
+
+        :global(.ant-input-affix-wrapper) {
+          height: calcVWM(35);
+        }
+
+        :global(.ant-input) {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+          border-bottom: 1px solid #ffffff;
+          height: calcVWM(30);
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        .inputSection {
+          gap: calcVWM(40);
+        }
+
+        .inputSection > div > div > div {
+          height: calcVWM(58);
+        }
+
+        .recaptcha {
+          margin: 0 auto;
+          margin-bottom: calcVWM(28);
+          margin-top: calcVWM(-9);
+        }
+
+        .suffix {
+          width: calcVWM(17);
+          height: calcVWM(19);
+        }
+
+        .buttonWrapper {
+          button {
+            @include font-style(
+              calcVWM(13) !important,
+              variables.$fw-700 !important,
+              calcVWM(16) !important
+            );
+            padding: calcVWM(8) calcVWM(32);
+            border-radius: calcVWM(8);
+            margin: 0 auto;
+          }
+        }
+
+        .accept {
+          height: calcVWM(34) !important;
+
+          .acceptText {
+            font-size: calcVWM(18);
+            line-height: calcVWM(24);
+
+            a {
+              margin-left: calcVWM(5);
+              font-size: calcVWM(18);
+              line-height: calcVWM(24);
+            }
+          }
+
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWM(35);
+          }
+        }
+
+        :global(.ant-form-item) {
+          margin-bottom: calcVWM(20);
+          height: calcVWM(25);
+        }
+
+        :global(.ant-checkbox-inner) {
+          width: calcVWM(15);
+          height: calcVWM(15);
+        }
+
+        :global(.ant-checkbox) {
+          margin-right: calcVWM(10);
+        }
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+
+        .uploadItem {
+          input[type="file"] {
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              transparent !important
+            );
+            margin: 0;
+            height: calcVWM(26);
+          }
+
+          .removeFile {
+            img {
+              width: calcVWM(20);
+              height: calcVWM(20);
+            }
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWM(-126);
+            margin-right: calcVWM(126);
+            color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

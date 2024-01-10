@@ -1,0 +1,317 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-form-item-styles {
+  .floatLabel {
+    .phoneInput {
+      @include font-style(
+        calcVW(13) !important,
+        variables.$fw-400,
+        calcVW(20),
+        #8296a5
+      );
+    }
+    align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      background-color: transparent !important;
+      -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    }
+
+    :global(.ant-input-affix-wrapper-focused) {
+      box-shadow: none !important;
+      border: none;
+      border-color: transparent !important;
+    }
+
+    :global(.ant-input-status-error) {
+      border-bottom: 1px solid rgb(207, 39, 39) !important;
+
+      &:focus {
+        box-shadow: 0 1px 1px -1px rgb(207, 39, 39) !important;
+      }
+    }
+
+    :global(.ant-input-affix-wrapper-status-warning) {
+      background: transparent !important;
+      border-color: transparent !important;
+
+      &:hover {
+        border: none;
+        border-color: transparent !important;
+        box-shadow: none !important;
+      }
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    :global(.ant-input-affix-wrapper) {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    input::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+
+    input:-webkit-autofill {
+      background-color: transparent;
+    }
+
+    .flag-dropdown {
+      background: transparent;
+    }
+
+    .label {
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: calcVW(11);
+      transition: 0.2s ease all;
+      @include font-style(calcVW(13), variables.$fw-400, calcVW(20), #8296a5);
+    }
+
+    .asPlaceholder {
+      color: rgba(255, 255, 255, 0.73);
+      @include font-style(calcVW(18), variables.$fw-400, normal);
+      top: calcVW(5) !important;
+
+      @media only screen and (max-width: 1820px) and (min-width: 1720px) {
+        top: calcVW(6) !important;
+      }
+
+      @media only screen and (max-width: 1720px) and (min-width: 1620px) {
+        top: calcVW(10) !important;
+      }
+
+      @media only screen and (max-width: 1620px) and (min-width: 1520px) {
+        top: calcVW(12) !important;
+      }
+
+      @media only screen and (max-width: 1520px) and (min-width: 1440px) {
+        top: calcVW(14) !important;
+      }
+      @media only screen and (max-width: 1440px) and (min-width: 1390px) {
+        top: calcVWL(11) !important;
+      }
+
+      @media only screen and (max-width: 1390px) and (min-width: 1340px) {
+        top: calcVWL(10) !important;
+      }
+
+      @media only screen and (max-width: 1340px) and (min-width: 1290px) {
+        top: calcVWL(12) !important;
+      }
+
+      @media only screen and (max-width: 1290px) and (min-width: 1240px) {
+        top: calcVWL(14) !important;
+      }
+
+      @media only screen and (max-width: 1240px) and (min-width: 1190px) {
+        top: calcVWL(16) !important;
+      }
+
+      @media only screen and (max-width: 1190px) and (min-width: 1140px) {
+        top: calcVWL(18) !important;
+      }
+
+      @media only screen and (max-width: 1140px) and (min-width: 1090px) {
+        top: calcVWL(20) !important;
+      }
+
+      @media only screen and (max-width: 1090px) and (min-width: 1024px) {
+        top: calcVWL(20) !important;
+      }
+
+      @media only screen and (max-width: 1024px) and (min-width: 976px) {
+        top: calcVWT(7) !important;
+      }
+
+      @media only screen and (max-width: 976px) and (min-width: 928px) {
+        top: calcVWT(8) !important;
+      }
+
+      @media only screen and (max-width: 928px) and (min-width: 880px) {
+        top: calcVWT(10) !important;
+      }
+
+      @media only screen and (max-width: 880px) and (min-width: 832px) {
+        top: calcVWT(12) !important;
+      }
+
+      @media only screen and (max-width: 832px) and (min-width: 784px) {
+        top: calcVWT(14) !important;
+      }
+
+      @media only screen and (max-width: 784px) and (min-width: 736px) {
+        top: calcVWT(16) !important;
+      }
+
+      @media only screen and (max-width: 736px) and (min-width: 688px) {
+        top: calcVWT(20) !important;
+      }
+
+      @media only screen and (max-width: 688px) and (min-width: 640px) {
+        top: calcVWT(26) !important;
+      }
+
+      @media only screen and (max-width: 640px) and (min-width: 592px) {
+        top: calcVWT(32) !important;
+      }
+
+      @media only screen and (max-width: 592px) and (min-width: 576px) {
+        top: calcVWT(32) !important;
+      }
+      @media only screen and (max-width: 576px) and (min-width: 526px) {
+        top: calcVWM(1) !important;
+      }
+
+      @media only screen and (max-width: 526px) and (min-width: 476px) {
+        top: calcVWM(2) !important;
+      }
+
+      @media only screen and (max-width: 476px) and (min-width: 426px) {
+        top: calcVWM(3) !important;
+      }
+
+      @media only screen and (max-width: 426px) and (min-width: 376px) {
+        top: calcVWM(4) !important;
+      }
+
+      @media only screen and (max-width: 376px) and (min-width: 326px) {
+        top: calcVWM(5) !important;
+      }
+      span {
+        color: red;
+      }
+    }
+
+    .asLabel {
+      z-index: 1;
+      left: 0 !important;
+      top: calcVW(-20) !important ;
+      background: transparent;
+      @include font-style(
+        calcVW(13),
+        variables.$fw-400,
+        normal,
+        #8296a5 !important
+      );
+
+      span {
+        color: red;
+      }
+
+      @media (max-width: 576px) {
+        top: calcVWM(-15) !important ;
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .label {
+        top: calcVWL(11);
+        font-size: calcVWL(13);
+        line-height: calcVWL(20);
+      }
+
+      .asPlaceholder {
+        @include font-style(
+          calcVWL(18) !important,
+          variables.$fw-400,
+          calcVWL(24) !important
+        );
+        font-size: 18px;
+      }
+
+      .asLabel {
+        top: calcVWL(-20) !important;
+        @include font-style(
+          calcVWL(13) !important,
+          variables.$fw-400,
+          normal,
+          #8296a5 !important
+        );
+      }
+    }
+  }
+
+  .floatLabelBorder {
+    border-bottom: 1px solid variables.$white;
+  }
+
+  @media (max-width: 1024px) {
+    .floatLabelBorder {
+      padding-bottom: calcVWT(10);
+    }
+
+    .asPlaceholder {
+      @include font-style(
+        calcVWT(18) !important,
+        variables.$fw-400,
+        calcVWT(24) !important
+      );
+    }
+
+    .label {
+      @include font-style(
+        calcVWT(18) !important,
+        variables.$fw-400,
+        normal,
+        #8296a5
+      );
+    }
+
+    .asLabel {
+      top: calcVWT(-18) !important;
+      @include font-style(
+        calcVWT(13) !important,
+        variables.$fw-400,
+        normal,
+        #8296a5 !important
+      );
+    }
+    .file {
+      top: calcVW(20) !important;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .asPlaceholder {
+      @include font-style(
+        calcVWM(18) !important,
+        variables.$fw-400,
+        calcVWM(24)
+      );
+    }
+
+    .label {
+      @include font-style(
+        calcVWM(18) !important,
+        variables.$fw-400,
+        normal !important,
+        #8296a5
+      );
+    }
+
+    .asLabel {
+      top: calcVWM(0) !important;
+      @include font-style(
+        calcVWM(13) !important,
+        variables.$fw-400,
+        normal,
+        #8296a5 !important
+      );
+    }
+  }
+}

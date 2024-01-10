@@ -1,0 +1,30 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-blogs-styles {
+  .content {
+    width: getBlogsSizes(content-width);
+    margin: getBlogsSizes(content-mt) auto 0 auto;
+
+    .blogsSection {
+      margin: calcVW(88) 0 calcVW(320);
+    }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1280);
+      margin: calcVWL(478) auto 0 auto;
+  
+      .blogsSection {
+        margin: calcVWL(88) 0 calcVWL(320);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      width: calcVWT(928);
+      margin-top: calcVWT(252);
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(343);
+      margin-top: calcVWM(104);
+    }
+  }
+}

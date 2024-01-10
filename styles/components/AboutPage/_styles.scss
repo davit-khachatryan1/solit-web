@@ -1,0 +1,240 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-about-page-styles {
+  .container {
+    overflow: hidden;
+    margin-bottom: calcVW(320);
+    .content {
+      width: getAboutPageSizes(content-width);
+      margin: getAboutPageSizes(content-mt) auto 0 auto;
+
+      .homeMain {
+        padding-left: calcVW(24);
+      }
+      .servicesMain {
+        width: 100%;
+        margin-top: getAboutPageSizes(services-mt);
+
+        .services {
+          @include flex(space-between, center, null, wrap);
+          width: 100%;
+          row-gap: getAboutPageSizes(services-rg);
+        }
+        .borderedTextBottom {
+          margin-bottom: getAboutPageSizes(bordered-text-mb);
+        }
+      }
+      .title {
+        @include font-style(
+          getAboutPageSizes(title-fz),
+          variables.$fw-500,
+          getAboutPageSizes(title-fl),
+          #fff
+        );
+        position: relative;
+        margin-top: getAboutPageSizes(title-mt);
+        letter-spacing: 0.2px;
+      }
+      .impact {
+        @include flex(space-between, flex-start, null, wrap);
+        row-gap: getAboutPageSizes(impact-rg);
+        margin-top: getAboutPageSizes(impact-mt);
+        margin-bottom: calcVW(234);
+      }
+      .descriptionBlock {
+        @include flex(null, flex-start, column);
+        row-gap: getAboutPageSizes(description-rg);
+        margin-bottom: getAboutPageSizes(description-mb);
+        padding: getAboutPageSizes(description-p);
+      }
+      .description {
+        // p {
+          @include font-style(
+            getAboutPageSizes(description-fz),
+            variables.$fw-400,
+            getAboutPageSizes(description-fl)
+          );
+        // }
+      }
+      .aboutImage {
+        width: 100%;
+        max-width: calcVW(1280);
+        max-height: calcVW(683);
+        object-fit: cover;
+        border-radius: getAboutPageSizes(about-image-br);
+        margin-bottom: calcVW(234);
+      }
+      .quickFacts {
+        @include flex(space-between, center);
+        margin-top: getAboutPageSizes(quick-facts-mt);
+      }
+      .descriptionMt {
+        margin-top: getAboutPageSizes(description-mt);
+      }
+      .aboutCompanyContent {
+        @include flex(space-between, center, row, wrap);
+        margin: getAboutPageSizes(about-company-m);
+      }
+      .aboutCompanyTitle {
+        @include flex(null, center);
+        @include font-style(
+          calcVW(36) variables.$fw-500,
+          calcVW(44),
+          variables.$white
+        );
+      }
+
+      @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+        width: calcVWL(1280);
+        margin: calcVWL(478) auto 0 auto;
+
+        .servicesMain {
+          width: 100%;
+          margin-top: calcVWL(400);
+
+          .services {
+            row-gap: calcVWL(96);
+          }
+          .borderedTextBottom {
+            margin-bottom: calcVWL(-40);
+          }
+        }
+        .title {
+          @include font-style(
+            calcVWL(36),
+            variables.$fw-500,
+            calcVWL(44),
+            #fff
+          );
+          margin-top: calcVWL(150);
+        }
+        .impact {
+          row-gap: calcVWL(32);
+          margin-top: calcVWL(32);
+          margin-bottom: calcVW(234);
+        }
+        .descriptionBlock {
+          row-gap: calcVWL(32);
+          margin-bottom: calcVWL(32);
+          padding: calcVWL(32);
+        }
+        .description {
+          p {
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+          }
+        }
+        .aboutImage {
+          max-width: calcVWL(1280);
+          height: calcVWL(683);
+          border-radius: calcVWL(16);
+          margin-bottom: calcVWL(234);
+        }
+        .quickFacts {
+          margin-top: calcVWL(32);
+        }
+        .descriptionMt {
+          margin-top: calcVWL(32);
+        }
+        .aboutCompanyContent {
+          margin: calcVWL(90) 0;
+        }
+        .aboutCompanyTitle {
+          @include flex(null, center);
+          @include font-style(
+            calcVWL(36) variables.$fw-500,
+            calcVWL(44),
+            variables.$white
+          );
+        }
+      }
+
+      @media (max-width: 1024px) {
+        width: calcVWT(928);
+        margin-top: calcVWT(258);
+        .title {
+          @include font-style(
+            calcVWT(36),
+            variables.$fw-500,
+            calcVWT(44),
+            #fff
+          );
+          margin-top: calcVWT(160);
+        }
+        .impact {
+          margin-top: calcVWT(32);
+          row-gap: calcVWT(32);
+          padding: 0 calcVWT(24);
+          margin-bottom: calcVWT(96);
+        }
+        .description {
+          p {
+            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+          }
+        }
+        .descriptionBlock {
+          padding: calcVWT(32) calcVWT(24);
+        }
+        .aboutImage {
+          margin: 0 auto;
+          height: calcVWT(595);
+          max-height: calcVWT(595);
+          max-width:  calcVWT(896);
+          display: block;
+          width: calcVWT(896);
+          margin-bottom: calcVWT(88);
+        }
+        .quickFacts {
+          align-items: flex-start;
+          margin-top: calcVWT(40);
+          padding: 0 0 0 calcVWT(10);
+        }
+      }
+      @media (max-width: 576px) {
+        padding: unset;
+        margin: 0 calcVWM(16);
+        margin-top: calcVWM(90);
+        .title {
+          @include font-style(
+            calcVWM(36),
+            variables.$fw-500,
+            calcVWM(44),
+            #fff
+          );
+          margin-top: calcVWM(36);
+        }
+        .impact {
+          margin-bottom: calcVWM(128);
+          margin-top: calcVWM(32);
+          padding: 0;
+        }
+        .descriptionBlock {
+          row-gap: calcVWM(16);
+          padding: calcVWM(16);
+        }
+        .description {
+          p {
+            @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+          }
+        }
+        .aboutImage {
+          height: calcVWM(230);
+          padding: 0;
+          margin-bottom: calcVWM(124);
+        }
+        .quickFacts {
+          margin-top: calcVWM(32);
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: unset;
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      margin-bottom: calcVWT(192);
+    }
+    @media (max-width: 576px) {
+      margin-bottom: calcVWM(144);
+    }
+  }
+}

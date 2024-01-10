@@ -1,0 +1,92 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-services-styles {
+  .content {
+    width: getServicesSizes(content-width);
+    margin: getServicesSizes(content-mt) auto 0 auto;
+
+    .services {
+      margin-top: getServicesSizes(services-margin-top);
+      @include flex(space-between, center, null, wrap);
+      width: 100%;
+      row-gap: getServicesSizes(services-rg);
+
+      .serviceCard {
+        width: getServicesSizes(service-card-width) !important;
+        height: getServicesSizes(service-card-height) !important;
+        max-width: none !important;
+        box-shadow: none !important;
+
+        .iconWrapper {
+          width: 100% !important;
+        }
+
+        img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover;
+        }
+      }
+
+      .serviceCard > div {
+        width: unset !important;
+        height: 100%;
+      }
+    }
+
+    .weKnowSection {
+      margin: getServicesSizes(content-we-know-section-margin);
+    }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1216);
+      margin: calcVWL(478) auto 0 auto;
+
+      .services {
+        margin-top: calcVWL(124);
+        row-gap: calcVWL(96);
+
+        .serviceCard {
+          width: calcVWL(560) !important;
+          height: calcVWL(600) !important;
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      width: calcVWT(874);
+      margin-top: calcVWT(258);
+      .services {
+        .serviceCard {
+          width: calcVWT(384) !important;
+          height: calcVWT(600) !important;
+          max-height: calcVWT(600) !important;
+          .description {
+            padding: calcVWT(100) !important;
+          }
+        }
+        .serviceCard > div {
+          width: calcVWT(384) !important;
+          height: calcVWT(600) !important;
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(343);
+      margin-top: calcVWM(76);
+      .services {
+        .serviceCard {
+          width: calcVWM(343) !important;
+          height: calcVWM(300) !important;
+          max-height: calcVWM(300) !important;
+          .description {
+            padding: calcVWM(100) !important;
+          }
+        }
+        .serviceCard > div {
+          width: calcVWM(343) !important;
+          height: calcVWM(300) !important;
+        }
+      }
+    }
+  }
+}

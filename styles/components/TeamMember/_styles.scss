@@ -1,0 +1,177 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-team-member-styles {
+  .imageContainer {
+    position: relative;
+    overflow: hidden;
+    border-radius: calcVW(16);
+    width: getTeamMemberSizes(team-member-card-width);
+    height: getTeamMemberSizes(team-member-card-height);
+    background: rgba(0, 0, 0, 0.32);
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .positionSection {
+      height: getTeamMemberSizes(team-member-position-height);
+      display: flex;
+      opacity: 0;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      bottom: calcVW(-30);
+      left: 0;
+      padding: getTeamMemberSizes(team-member-position-section-p);
+
+      .name {
+        @include font-style(getTeamMemberSizes(team-member-name-fz),
+          variables.$fw-500,
+          getTeamMemberSizes(team-member-name-lh),
+          #fff);
+      }
+
+      .position {
+        @include font-style(getTeamMemberSizes(team-member-position-fz),
+          variables.$fw-300,
+          getTeamMemberSizes(team-member-position-lh),
+          #fff);
+      }
+    }
+
+    .more {
+      display: flex;
+      gap: calcVW(10);
+      align-items: center;
+      @include font-style(calcVW(18),
+        variables.$fw-700,
+        getTeamMemberSizes(team-member-position-lh),
+        #219fdb);
+
+      img {
+        width: calcVW(18);
+        height: calcVW(18);
+      }
+    }
+
+    &:hover {
+      .positionSection {
+        opacity: 1;
+        transition: 0.3s;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .moreWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid variables.$light-blue;
+    border-radius: calcVW(16);
+    cursor: pointer;
+
+    &:hover{
+      transition: 0.4s;
+      box-shadow: 0px 42px 98px -42px #7811fe;
+    }
+  }
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .imageContainer {
+      border-radius: calcVWL(16);
+      width: calcVWL(296);
+      height: calcVWL(300);
+  
+      .positionSection {
+        height: calcVWL(120);
+        bottom: calcVWL(-30);
+        padding: calcVWL(32);
+  
+        .name {
+          @include font-style(calcVWL(24),
+            variables.$fw-500,
+            calcVWL(29),
+            #fff);
+        }
+  
+        .position {
+          @include font-style(calcVWL(16),
+            variables.$fw-300,
+            calcVWL(24),
+            #fff);
+        }
+      }
+  
+      .more {
+        gap: calcVWL(10);
+        @include font-style(calcVWL(18),
+          variables.$fw-700,
+          calcVWL(24),
+          #219fdb);
+  
+        img {
+          width: calcVWL(18);
+          height: calcVWL(18);
+        }
+      }
+    }
+  
+    .moreWrapper {
+      border-radius: calcVWL(16);
+    }
+  }
+  @media (max-width: 1024px) {
+    .imageContainer {
+      border-radius: calcVWT(16);
+      width: calcVWT(208);
+      height: calcVWT(220);
+
+      .more {
+        @include font-style(calcVWT(18),
+          variables.$fw-700,
+          normal,
+          #219fdb);
+
+        img {
+          width: calcVWT(16);
+          height: calcVWT(16);
+        }
+      }
+    }
+
+    .fromCareers {
+      width: calcVWT(296);
+      height: calcVWT(300);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .imageContainer {
+      border-radius: calcVWM(16);
+      width: calcVWM(163);
+      height: calcVWM(200);
+
+      .more {
+
+        @include font-style(calcVWM(18),
+          variables.$fw-700,
+          normal,
+          #219fdb);
+
+        img {
+          width: calcVWM(16);
+          height: calcVWM(16);
+        }
+      }
+    }
+
+    .fromCareers {
+      width: calcVWM(155);
+      height: calcVWM(300);
+    }
+  }
+}

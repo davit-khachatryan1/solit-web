@@ -1,0 +1,110 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-portfolios-styles {
+  .portfoliosWrapper {
+    width: 100%;
+
+    .filters {
+      z-index: 99;
+      display: flex;
+      flex-wrap: wrap;
+      gap: calcVW(16);
+      width: 100%;
+
+      button {
+        &:hover {
+          color: black !important;
+        }
+      }
+    }
+
+    .projects {
+      margin-top: calcVW(106);
+      position: relative;
+      width: 100%;
+      gap: calcVW(32);
+      row-gap: calcVW(64) !important;
+      justify-content: start !important;
+
+      .elipse {
+        position: absolute;
+        left: calcVW(-320);
+        width: calc(100% + calcVW(640));
+        height: calc(100% + calcVW(640));
+        top: calcVW(-250);
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .filters {
+        gap: calcVWL(16);
+      }
+
+      .projects {
+        row-gap: calcVWL(64) !important;
+        margin-top: calcVWL(120);
+
+        .elipse {
+          left: calcVWL(-320);
+          width: calc(100% + calcVWL(640));
+          height: calc(100% + calcVWL(640));
+          top: calcVWL(-250);
+        }
+      }
+    }
+
+    @media (max-width: 1024px) and (min-width: 576px) {
+      .projects {
+        margin: calcVWT(64) calcVWT(24) 0;
+        column-gap: calcVWT(32) !important;
+        row-gap: calcVWT(64) !important;
+      }
+
+      .filters {
+        gap: calcVWT(16);
+
+        button {
+          height: calcVWT(48) !important;
+          padding: calcVWT(16) calcVWT(32) !important;
+
+          @include font-style(calcVWT(13) !important,
+            variables.$fw-700 !important,
+            calcVWT(16) !important);
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      .projects {
+        margin-top: calcVWM(49);
+        gap: calcVWM(32) !important;
+        row-gap: calcVWM(16) !important;
+
+        .elipse {
+          top: -25%;
+        }
+      }
+
+      .filters {
+        min-width: max-content;
+        gap: calcVWM(16) !important;
+        margin-bottom: calcVWM(15);
+
+        button {
+          padding: calcVWM(16) calcVWM(32) !important;
+
+          @include font-style(calcVWM(13) !important,
+            variables.$fw-700 !important,
+            calcVWM(16) !important);
+        }
+      }
+
+      .filtersBlock {
+        margin: 0 0 0 calcVWM(16);
+        max-width: 100%;
+        overflow: scroll;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$home-content-sizes: (
+  content-width: calcVW(1216),
+  about-content-width: calcVW(1280),
+  content-mt: calcVW(478),
+  services-rg: calcVW(96),
+  services-mt: calcVW(120),
+  bordered-text-mb: calcVW(-40),
+  bordered-text-ml: calcVW(-280),
+  bordered-text-ml-what: calcVW(-250),
+  bordered-text-mtb: calcVW(140) 0 calcVW(80) 0,
+  about-content-rg: calcVW(32),
+  project-content-rg: calcVW(32),
+  about-company-width: calcVW(1100),
+  about-company-m: calcVW(90) 0 calcVW(130) 0,
+  project-mb: calcVW(130),
+  project-mt: calcVW(120),
+  testimonials-mt: calcVW(200),
+  world-map-w: calcVW(1200),
+  world-map-user-w: calcVW(720),
+  world-map-pb: calcVW(140),
+  technology-mt: calcVW(150),
+  technology-mb: calcVW(50),
+  service-main-button-mt: calcVW(64),
+  what-we-do-title-fz: calcVW(36),
+  what-we-do-title-lh: calcVW(44),
+  what-we-do-description-fz: calcVW(18),
+  what-we-do-description-lh: calcVW(24),
+  what-we-do-description-mt: calcVW(24),
+  what-we-do-description-mb: calcVW(60),
+);
+
+@function getHomeContentSizes($property) {
+  @return map-get($home-content-sizes, $property);
+}

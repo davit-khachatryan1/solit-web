@@ -1,0 +1,11 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$portfolio-main-sizes: (
+  content-mt: calcVW(175),
+  content-width: calcVW(1280),
+);
+
+@function getPortfolioMainSizes($property) {
+  @return map-get($portfolio-main-sizes, $property);
+}

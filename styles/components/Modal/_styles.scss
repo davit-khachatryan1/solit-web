@@ -1,0 +1,135 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-modal-styles {
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modalOpen {
+    animation: slideInFromTop 0.4s ease-in-out;
+  }
+
+  @keyframes slideOutToTop {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .modalClose {
+    animation: slideOutToTop 0.22s ease-in-out;
+  }
+
+  .modal {
+    :global(.ant-modal-header) {
+      border-bottom: none;
+      padding: 0;
+    }
+
+    :global(.ant-modal-body) {
+      padding: 0;
+    }
+
+    :global(.ant-modal-content) {
+      padding: calcVW(64);
+      border-radius: calcVW(16);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    :global(.ant-modal-title) {
+      margin-bottom: calcVW(32);
+    }
+
+    :global(.ant-modal-close) {
+      top: calcVW(56);
+      right: calcVW(46);
+    }
+  }
+
+  .logo {
+    width: calcVW(100);
+    height: calcVW(40);
+  }
+
+  .closeIcon {
+    width: calcVW(24);
+    height: calcVW(24);
+  }
+
+  @media (max-width: 1024px) {
+    .modal {
+      width: 100%;
+      :global(.ant-modal-content) {
+        padding: calcVWT(64);
+        border-radius: calcVWT(16);
+        width: calcVWT(602);
+      }
+
+      :global(.ant-modal-title) {
+        margin-bottom: calcVWT(60);
+      }
+
+      :global(.ant-modal-close) {
+        top: calcVWT(57);
+        right: calcVWT(48);
+      }
+    }
+
+    .logo {
+      width: calcVWT(100);
+      height: calcVWT(40);
+    }
+
+    .closeIcon {
+      width: calcVWT(24);
+      height: calcVWT(24);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .modalOpen {
+      width: calcVWM(343) !important;
+      max-width: calcVWM(343) !important;
+    }
+
+    .modal {
+      width: calcVWM(343) !important;
+      max-width: calcVWM(343) !important;
+      :global(.ant-modal-content) {
+        width: 100% !important;
+        padding: calcVWM(16) !important;
+        border-radius: calcVWM(16) !important;
+      }
+
+      :global(.ant-modal-close) {
+        top: calcVWM(10);
+        right: calcVWM(10);
+      }
+    }
+
+    .logo {
+      width: calcVWM(100);
+      height: calcVWM(40);
+    }
+
+    .closeIcon {
+      width: calcVWM(24);
+      height: calcVWM(24);
+    }
+  }
+}

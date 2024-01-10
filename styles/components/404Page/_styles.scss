@@ -1,0 +1,75 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-404-page-styles {
+  .errorPage {
+    width: 100%;
+    padding: get404PageSizes(error-page-padding);
+
+    .textSection {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .errorText {
+        @include font-style(calcVW(36), variables.$fw-400, calcVW(43), variables.$main-white);
+      }
+      .errorCode {
+        height: calcVW(130);
+        width: auto;
+        margin: calcVW(38) 0;
+      }
+      .message {
+        text-align: center;
+        @include font-style(calcVW(48), variables.$fw-400, calcVW(58), variables.$main-white);
+      }
+    }
+    .buttonWrapper {
+      margin-top: calcVW(60);
+      display: flex;
+      justify-content: center;
+      gap: calcVW(40);
+    }
+    @media (max-width: 1024px) {
+      padding: calcVWT(230) 0;
+
+      .textSection {
+        .errorText {
+          @include font-style(calcVWT(36), variables.$fw-400, calcVWT(43), variables.$main-white);
+        }
+        .errorCode {
+          height: calcVWT(130);
+          margin: calcVWT(38) 0;
+        }
+        .message {
+          @include font-style(calcVWT(48), variables.$fw-400, calcVWT(58), variables.$main-white);
+        }
+      }
+      .buttonWrapper {
+        margin-top: calcVWT(60);
+        gap: calcVWT(40);
+      }
+    }
+    @media (max-width: 576px) {
+      padding: calcVWM(180) 0;
+
+      .textSection {
+        .errorText {
+          @include font-style(calcVWM(36), variables.$fw-400, calcVWM(43), variables.$main-white);
+        }
+        .errorCode {
+          height: calcVWM(130);
+          margin: calcVWM(38) 0;
+        }
+        .message {
+          @include font-style(calcVWM(48), variables.$fw-400, calcVWM(58), variables.$main-white);
+        }
+      }
+      .buttonWrapper {
+        margin-top: calcVWM(60);
+        gap: calcVWM(40);
+      }
+    }
+  }
+}

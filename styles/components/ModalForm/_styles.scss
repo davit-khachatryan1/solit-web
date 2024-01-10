@@ -1,0 +1,816 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+//To do refactor
+
+@mixin generate-modal-form-styles {
+  .modalFormWrapper {
+    :global(.ant-select-dropdown) {
+      background-color: aqua !important;
+    }
+
+    display: flex;
+    gap: calcVW(96);
+
+    :global {
+      .ant-form {
+        input[type="file"]:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .infoSection {
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(16);
+      max-width: 50%;
+      position: relative;
+      z-index: 1;
+
+      .title {
+        font-weight: 700;
+        font-size: calcVW(20);
+        line-height: calcVW(24);
+        color: #ffffff;
+      }
+
+      .info {
+        font-weight: 400;
+        font-size: calcVW(18);
+        line-height: calcVW(24);
+        color: #ffffff;
+      }
+    }
+
+    .fromButton {
+      :global(.ant-form-item):nth-child(7) {
+        order: 4;
+      }
+
+      :global(.ant-form-item):nth-child(3) {
+        order: 5;
+      }
+
+      :global(.ant-form-item):nth-child(4) {
+        order: 6;
+      }
+
+      :global(.ant-form-item):nth-child(6) {
+        order: 10;
+      }
+
+      :global(.ant-form-item):nth-child(8) {
+        order: 8;
+      }
+
+      :global(.ant-form-item):nth-child(5) {
+        order: 9;
+      }
+
+      :global(.ant-form-item):nth-child(9) {
+        order: 12;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 100%;
+      gap: calcVW(16);
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      padding: calcVW(24) 0;
+      input:not([type="range"]) {
+        &::after {
+          display: none;
+        }
+      }
+      .uploadItem {
+        position: relative;
+
+        .removeFile {
+          position: absolute;
+          right: 0;
+          top: calcVW(10);
+          width: max-content;
+          cursor: pointer;
+          padding-left: 10px;
+          background: white;
+          z-index: 999;
+
+          img {
+            width: calcVW(20);
+            height: calcVW(20);
+          }
+        }
+      }
+
+      :global(.ant-form-item-has-error) {
+        input {
+          border-bottom: 1px solid rgb(207, 39, 39) !important;
+        }
+      }
+
+      @media screen and (max-width: 1440px) and (min-width: 1025px) {
+        .uploadItem {
+          .removeFile {
+            top: calcVWL(10);
+            img {
+              width: calcVWL(20);
+              height: calcVWL(20);
+            }
+            @media (max-width: 1100px) {
+              top: calcVWL(15);
+            }
+          }
+        }
+      }
+
+      :global(.ant-input-affix-wrapper) {
+        padding: 0;
+        border: 0;
+        outline: none;
+        justify-content: space-between;
+
+        &:focus {
+          border: 0;
+        }
+
+        &:hover {
+          z-index: unset;
+        }
+      }
+
+      .uploadAntd {
+        width: 100%;
+
+        :global(.ant-upload-list) {
+          display: none;
+        }
+
+        :global(.ant-upload) {
+          width: 100%;
+        }
+
+        :global(.ant-input) {
+          @include font-style(
+            calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            variables.$black
+          );
+          caret-color: transparent;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: calcVW(370);
+          margin-left: 0;
+          margin-right: auto;
+        }
+      }
+
+      .buttonWrapper {
+        button {
+          @include font-style(
+            getModalFormSizes(button-fz),
+            variables.$fw-700,
+            getModalFormSizes(button-fl)
+          );
+        }
+      }
+
+      .suffix {
+        width: calcVW(17);
+        height: calcVW(19);
+      }
+
+      .accept {
+        margin-top: calcVW(-24);
+
+        :global(.ant-form-item-control-input-content) {
+          display: flex;
+          align-items: center;
+          gap: calcVW(18);
+        }
+
+        :global(.ant-checkbox-inner) {
+          background: transparent !important;
+          border-color: black !important;
+
+          &::after {
+            border: 2px solid #000;
+            border-top: 0;
+            border-left: 0;
+          }
+        }
+
+        .acceptText {
+          @include font-style(
+            getModalFormSizes(text-fz),
+            variables.$fw-400,
+            getModalFormSizes(text-fl),
+            #000
+          );
+
+          a {
+            border-bottom: 1px solid black;
+            margin-left: calcVW(5);
+            @include font-style(
+              getPricingModal(text-fz),
+              variables.$fw-400,
+              getPricingModal(text-fl),
+              #000
+            );
+          }
+        }
+      }
+
+      .acceptLeft {
+        :global(.ant-form-item-control-input-content) {
+          justify-content: flex-start;
+        }
+      }
+
+      .uploadFile {
+        color: #e5e5e5;
+
+        :global(.ant-input-affix-wrapper) {
+          z-index: 0;
+          background: transparent;
+          border-bottom: 1px solid white;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          padding: 0;
+
+          input[type="file"]::-webkit-file-upload-button {
+            visibility: hidden;
+            display: none;
+          }
+
+          input[type="file"]::before {
+            content: " ";
+            display: inline-block;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+            text-align: center;
+            cursor: pointer;
+          }
+
+          input[type="file"] {
+            z-index: 999;
+          }
+        }
+
+        :global(.ant-input-affix-wrapper-focused) {
+          box-shadow: none;
+          border-bottom: 1px solid white;
+        }
+
+        :global(.ant-input-suffix) {
+          position: absolute;
+          right: 0;
+          color: white;
+          bottom: 10px;
+        }
+      }
+      @media (min-width: 1440px) {
+        .uploadAntd {
+          :global(.ant-input-suffix) {
+            img {
+              position: absolute;
+              right: 0px;
+              bottom: 5px;
+            }
+          }
+        }
+      }
+      @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+        .uploadAntd {
+          :global(.ant-input-suffix) {
+            position: relative;
+            img {
+              height: calcVWL(20);
+              width: calcVWL(20);
+              position: absolute;
+              left: -15px;
+              bottom: 5px;
+            }
+          }
+        }
+      }
+
+      .inputSection {
+        display: flex;
+        flex-direction: column;
+        gap: calcVW(44);
+        width: 100%;
+
+        :global(.ant-form-item) {
+          label {
+            color: black;
+          }
+
+          input {
+            padding-left: 0;
+            padding-right: 0;
+            color: black;
+            border-radius: unset;
+            outline: 0 !important;
+            border: 0;
+            @include font-style(
+              calcVW(18),
+              variables.$fw-400,
+              calcVW(24),
+              variables.$black
+            );
+
+            @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+              font-size: calcVWL(18);
+            }
+
+            @media (max-width: 1024px) {
+              font-size: calcVWT(18);
+            }
+
+            @media (max-width: 576px) {
+              font-size: calcVWM(18);
+            }
+
+            &:focus {
+              box-shadow: none !important;
+            }
+
+            &::before {
+              display: none !important;
+            }
+          }
+
+          input[type="file"] {
+            color: transparent;
+          }
+        }
+
+        :global(.ant-input-status-success) {
+          color: #000 !important;
+        }
+
+        .select {
+          border-bottom: 1px solid #000;
+
+          :global(.ant-select-selector) {
+            padding: 0 !important;
+            border: none !important;
+            border-bottom: 1px solid #000;
+            box-shadow: none;
+            max-height: 35px !important;
+
+            &:focus-visible {
+              border: none;
+              outline: none;
+            }
+          }
+
+          &:focus-visible {
+            border: none;
+          }
+
+          .selectPlaceholder {
+            @include font-style(calcVW(18), variables.$fw-400, normal, #000);
+
+            @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+              @include font-style(calcVWL(18), variables.$fw-400, normal, #000);
+            }
+          }
+        }
+      }
+
+      .filled {
+        background-color: aquamarine;
+      }
+
+      .focused {
+        background-color: aqua;
+
+        :global {
+          .ant-form-item-label > label {
+            font-size: calcVW(13);
+            color: #ffffff;
+          }
+        }
+      }
+
+      :global(.ant-input) {
+        position: relative;
+        width: 100%;
+        outline: 0;
+        border: 0;
+        border-bottom: 1px solid #ffffff;
+        transition: box-shadow 150ms ease-out;
+        background: transparent;
+        color: #ffffff;
+
+        &:focus {
+          box-shadow: 0 2px 0 0 blue;
+        }
+      }
+
+      :global(.ant-form-item-label) {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        color: #999;
+        background-color: transparent;
+        z-index: 10;
+        transition: transform 150ms ease-out, font-size 150ms ease-out;
+      }
+
+      .input {
+        background: transparent;
+        color: #ffffff;
+      }
+
+      :global {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          background: transparent;
+          border-color: none;
+          box-shadow: 0 2px 0 0 rgb(207, 39, 39);
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
+          background: transparent;
+          border-color: none !important;
+          @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #000);
+
+          @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              #000
+            );
+          }
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          border-color: none;
+        }
+
+        .ant-form-item-label > label {
+          font-size: 16px;
+          color: #ffffff;
+        }
+
+        .ant-input:focus + .ant-form-item-label > label {
+          color: blue;
+        }
+      }
+
+      :global(.ant-form-item-has-success) {
+        input[type="file"] {
+          color: black !important;
+          margin-left: calcVW(-102);
+          border: 0;
+
+          @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+            margin-left: calcVWL(-108);
+          }
+        }
+      }
+
+      :global(.ant-form-item-has-error) {
+        :global(.ant-form-item-control-input-content) {
+          div {
+            border-width: 0 !important;
+          }
+        }
+      }
+    }
+
+    .backImage {
+      width: calcVW(1920);
+      left: calcVW(-320);
+      position: absolute;
+      bottom: calcVW(-380);
+      height: calcVW(1380);
+    }
+
+    :global(.ant-form-item-explain-error) {
+      transition: 0.1s;
+      transform: translateX(0);
+    }
+
+    .errorMessageRight {
+      :global(.ant-form-item-explain-error) {
+        transition: 0.1s;
+        transform: translateX(5px);
+      }
+    }
+
+    .errorMessageLeft {
+      :global(.ant-form-item-explain-error) {
+        transition: 0.1s;
+        transform: translateX(-5px);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .infoSection {
+        padding: 0 calcVWT(50);
+
+        .title {
+          font-weight: 500;
+          font-size: calcVWT(36);
+          line-height: calcVWT(44);
+          color: #ffffff;
+        }
+
+        .info {
+          font-weight: 400;
+          font-size: calcVWT(18);
+          line-height: calcVWT(24);
+          color: #ffffff;
+        }
+      }
+
+      .form {
+        width: 100%;
+        max-width: calcVWT(602);
+        padding: calcVWT(24) calcVWT(32);
+
+        .uploadItem {
+          .removeFile {
+            top: calcVWT(10);
+
+            img {
+              width: calcVWT(20);
+              height: calcVWT(20);
+            }
+          }
+        }
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              variables.$black
+            );
+            width: calcVWT(380);
+          }
+
+          :global(.ant-input-suffix) {
+            margin-top: calcVWT(10);
+            position: relative;
+            @media (max-width: 1024px) and (min-width: 576px) {
+              img {
+                position: absolute;
+                left: -15px;
+                bottom: 5px;
+              }
+            }
+          }
+        }
+
+        .suffix {
+          width: calcVWT(17);
+          height: calcVWT(19);
+        }
+
+        .buttonWrapper {
+          margin: auto;
+        }
+
+        :global(.ant-input) {
+          border-bottom: 2px solid #ffffff;
+        }
+
+        .focused {
+          :global {
+            .ant-form-item-label > label {
+              font-size: calcVWT(13);
+            }
+          }
+        }
+
+        .accept {
+          margin-top: calcVWT(-25);
+
+          .acceptText {
+            font-size: calcVWT(18);
+            line-height: calcVWT(24);
+
+            a {
+              margin-left: calcVWT(5);
+              font-size: calcVWT(18);
+              line-height: calcVWT(24);
+            }
+          }
+
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWT(18);
+            justify-content: flex-start;
+          }
+        }
+
+        :global(.ant-form-item) {
+          margin-bottom: calcVWT(20);
+
+          label {
+            font-size: calcVWT(13);
+            line-height: normal;
+          }
+        }
+
+        :global(.ant-checkbox-inner) {
+          width: calcVWT(20);
+          height: calcVWT(20);
+        }
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
+          width: calcVWT(20);
+          height: calcVWT(20);
+        }
+
+        .inputSection {
+          gap: calcVWT(34);
+          .select {
+            .selectPlaceholder {
+              @include font-style(calcVWT(18), variables.$fw-400, normal, #000);
+            }
+          }
+        }
+
+        :global(.ant-form-item-has-success) {
+          input[type="file"] {
+            margin-left: calcVWT(-100);
+          }
+        }
+
+        :global {
+          .ant-input-status-error:not(.ant-input-disabled):not(
+              .ant-input-borderless
+            ).ant-input {
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              #000
+            );
+          }
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      .inputSection {
+        :global(.ant-form-item) {
+          margin-bottom: calcVW(10);
+
+          label {
+            font-size: calcVWT(18);
+            line-height: normal;
+          }
+        }
+      }
+
+      .form {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+
+        .uploadItem {
+          .removeFile {
+            top: auto;
+            bottom: calcVWM(5);
+
+            img {
+              width: calcVWM(20);
+              height: calcVWM(20);
+            }
+          }
+        }
+
+        .uploadAntd {
+          :global(.ant-input) {
+            height: 36px !important;
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              variables.$black
+            );
+            width: calcVWM(280);
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: unset;
+          }
+        }
+
+        :global(.ant-input) {
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            #000
+          );
+        }
+
+        .suffix {
+          width: calcVWM(17);
+          height: calcVWM(19);
+        }
+
+        :global(.ant-form-item) {
+          margin-bottom: calcVWM(20);
+
+          label {
+            font-size: calcVWM(18);
+            line-height: normal;
+          }
+        }
+
+        .accept {
+          margin-top: calcVWM(-23);
+
+          .acceptText {
+            font-size: calcVWM(18);
+            line-height: calcVWM(24);
+
+            a {
+              margin-left: calcVWM(5);
+              font-size: calcVWM(18);
+              line-height: calcVWM(24);
+            }
+          }
+
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWM(18);
+          }
+        }
+
+        :global(.ant-checkbox) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+
+        :global(.ant-checkbox-inner) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+
+        .inputSection {
+          gap: calcVWM(34);
+          .select {
+            .selectPlaceholder {
+              @include font-style(calcVWM(18), variables.$fw-400, normal, #000);
+            }
+          }
+        }
+
+        :global(.ant-form-item-has-success) {
+          input[type="file"] {
+            margin-left: calcVWM(-66);
+          }
+        }
+
+        :global {
+          .ant-input-status-error:not(.ant-input-disabled):not(
+              .ant-input-borderless
+            ).ant-input {
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              #000
+            );
+          }
+        }
+      }
+    }
+  }
+}

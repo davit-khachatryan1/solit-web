@@ -1,0 +1,323 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-footer-styles {
+  .footerWrapper {
+    background: variables.$black-light;
+    position: relative;
+    z-index: 10;
+    padding: getFooterSizes(footer-wrapper-padding);
+
+    .footerBlock {
+      justify-content: space-between;
+    }
+
+    .infoWrapper {
+      width: calcVW(300);
+
+      .footerLogo {
+        width: calcVW(90);
+        height: calcVW(40);
+      }
+    }
+
+    .expertiseWrapper {
+      width: calcVW(356);
+    }
+
+    .companyWrapper {
+      width: calcVW(343);
+    }
+
+    .companyInfoWraper {
+      display: flex;
+      flex-direction: column;
+      width: calcVW(343);
+    }
+
+    .textTitle {
+      padding-left: calcVW(20);
+      margin-bottom: calcVW(16) !important;
+      @include font-style(
+        getFooterSizes(footer-text-title-fz),
+        variables.$fw-700,
+        getFooterSizes(footer-text-title-lh),
+        #fff
+      );
+    }
+
+    .text {
+      transition: 0.5s;
+      max-width: max-content;
+      cursor: pointer;
+      min-height: calcVW(32);
+      margin: 0;
+      padding: 0 calcVW(20);
+      @include font-style(
+        getFooterSizes(footer-text-fz),
+        variables.$fw-400,
+        getFooterSizes(footer-text-lh),
+        #fff
+      );
+
+      a {
+        @include font-style(
+          getFooterSizes(footer-text-fz),
+          variables.$fw-400,
+          getFooterSizes(footer-text-lh),
+          #fff
+        );
+      }
+
+      &:hover {
+        padding-left: calcVW(28);
+        color: #3fc1ff;
+
+        a {
+          color: #3fc1ff;
+        }
+      }
+    }
+
+    .socialIconsWrapper {
+      width: calcVW(300);
+
+      .socialIcons {
+        margin-right: getFooterSizes(footer-social-mr);
+        width: calcVW(24);
+        height: calcVW(24);
+        object-fit: contain;
+
+        &:hover {
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg)
+            brightness(86%) contrast(99%);
+          transition: 0.3s;
+        }
+      }
+
+      .socialIconsTitle {
+        padding: 0;
+        width: 100%;
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .footerWrapper {
+      padding: calcVWL(80);
+
+      .infoWrapper {
+        width: calcVWL(200);
+
+        .footerLogo {
+          width: calcVWL(90);
+          height: calcVWL(40);
+        }
+      }
+
+      .expertiseWrapper {
+        width: calcVWL(216);
+        margin-left: calcVW(-20);
+      }
+
+      .companyWrapper {
+        width: calcVWL(200);
+      }
+
+      .companyInfoWraper {
+        width: calcVWL(200);
+      }
+
+      .textTitle {
+        padding-left: calcVWL(20);
+        margin-bottom: calcVWL(16) !important;
+        @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), #fff);
+      }
+
+      .text {
+        min-height: calcVWL(32);
+        padding: 0 calcVW(20);
+        @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+
+        a {
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            #fff
+          );
+        }
+
+        &:hover {
+          padding-left: calcVW(28);
+        }
+      }
+
+      .socialIconsWrapper {
+        width: calcVWL(250);
+
+        .socialIcons {
+          margin-right: calcVWL(26);
+          width: calcVWL(24);
+          height: calcVWL(24);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .footerWrapper {
+      padding: calcVWT(24);
+      position: relative;
+
+      .footerBlock {
+        flex-wrap: wrap;
+        row-gap: calcVW(200);
+      }
+
+      .companyInfoWraper {
+        width: calcVWT(248);
+      }
+
+      .expertiseWrapper {
+        width: calcVWT(101);
+      }
+
+      .infoWrapper {
+        width: max-content;
+        margin-right: 0;
+        position: unset;
+
+        .footerLogo {
+          width: calcVWT(90);
+          height: calcVWT(40);
+        }
+      }
+
+      .textTitle {
+        padding: 0;
+
+        margin-bottom: calcVWT(16) !important;
+        @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+      }
+
+      .text {
+        padding: 0;
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+
+        a {
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            #fff
+          );
+        }
+
+        min-height: calcVWT(32);
+
+        &:hover {
+          padding: 0;
+          margin-left: calcVW(20);
+          margin-right: calcVW(-20);
+        }
+      }
+
+      .companyWrapper {
+        width: calcVWT(197);
+      }
+
+      .socialIconsWrapper {
+        column-gap: calcVWT(20);
+        flex-wrap: wrap;
+        display: flex;
+        width: calcVWT(212);
+        align-self: baseline;
+
+        .socialIcons {
+          width: calcVWT(25);
+          height: calcVWT(25);
+          object-fit: cover;
+          margin-bottom: calcVWT(20);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .footerWrapper {
+      padding: calcVWM(24) calcVWM(16);
+      position: relative;
+
+      .footerBlock {
+        flex-wrap: wrap;
+        row-gap: calcVWM(30);
+      }
+
+      .companyInfoWraper {
+        margin-right: 1;
+        width: 100%;
+        position: unset;
+        max-width: 100%;
+      }
+
+      .infoWrapper {
+        .footerLogo {
+          width: calcVWM(90);
+          height: calcVWM(40);
+        }
+      }
+
+      .expertiseWrapper {
+        order: 2;
+        width: calcVWM(150);
+        margin: 0;
+      }
+
+      .companyWrapper {
+        order: 3;
+        min-width: calcVWM(150);
+      }
+
+      .textTitle {
+        margin-bottom: calcVWM(17) !important;
+        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), #fff);
+      }
+
+      .text {
+        margin-bottom: calcVWM(7) !important;
+        min-height: calcVWM(24);
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+
+        a {
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            #fff
+          );
+        }
+      }
+
+      .socialIconsWrapper {
+        order: 4;
+        align-self: flex-start;
+        min-width: 100%;
+        max-width: 100%;
+        display: flex;
+        column-gap: calcVWM(25);
+
+        .socialIcons {
+          width: calcVWM(25);
+          height: calcVWM(25);
+          margin-top: calcVW(18);
+        }
+
+        .socialIconsTitle {
+          margin-bottom: calcVWM(10) !important;
+        }
+      }
+    }
+  }
+}

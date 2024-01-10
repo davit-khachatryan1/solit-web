@@ -1,0 +1,654 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-portfolio-card-styles {
+  .mainWrapper {
+    height: calcVW(320);
+    @include flex(center, center, center);
+    border-radius: calcVW(16);
+
+    .imageContainer {
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+      border-radius: calcVW(16);
+      cursor: pointer;
+      @include flex(center, center, column);
+      height: calcVW(320);
+
+      .img {
+        transition: 0.4s;
+        width: 100%;
+        border-radius: calcVW(16) calcVW(16) 0 0;
+        height: calcVW(244);
+        filter: grayscale(100%);
+        object-fit: cover;
+      }
+
+      .more {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        @include font-style(
+          getOurProjectCardSizes(team-member-position-fz),
+          variables.$fw-700,
+          getOurProjectCardSizes(team-member-position-lh),
+          #219fdb
+        );
+
+        img {
+          width: calcVW(18);
+          height: calcVW(18);
+        }
+      }
+
+      .positionSection {
+        transition: 0.4s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: getOurProjectCardSizes(project-position-height);
+        width: 100%;
+        align-items: center;
+        background: rgba(2, 13, 28, 0.73);
+        padding: calcVW(16);
+        text-align: center;
+
+        .name {
+          @include font-style(calcVW(18), variables.$fw-700, normal, #fff);
+
+          width: 100%;
+          justify-content: center;
+        }
+
+        .stacks {
+          transition: all 0.4s;
+          display: flex;
+          height: max-content;
+          gap: calcVW(25);
+          width: 100%;
+          justify-content: center;
+
+          .icon {
+            transition: 0.4s;
+            width: 0;
+            height: 0;
+            object-fit: cover;
+          }
+        }
+      }
+
+      &:hover {
+        transition: all 0.4s;
+        height: calcVW(420);
+        box-shadow: 0 42px 98px -42px #7811fe;
+
+        .img {
+          transition: all 0.4s;
+          height: calcVW(306);
+          filter: grayscale(0%);
+        }
+
+        .positionSection {
+          transition: 0.4s;
+          height: calcVW(114);
+          background: rgba(2, 13, 28);
+
+          .name {
+            @include font-style(
+              getOurProjectCardSizes(project-name-hover-fz),
+              variables.$fw-700,
+              getOurProjectCardSizes(project-name-hover-lh),
+              #fff
+            );
+          }
+
+          .stacks {
+            transition: 0.4s;
+            justify-content: center;
+            gap: calcVW(25);
+
+            .icon {
+              transition: 0.4s;
+              width: calcVW(24);
+              height: calcVW(24);
+            }
+          }
+        }
+      }
+    }
+
+    .portfolio,
+    .portfolioItem {
+      width: calcVW(405);
+
+      .positionSection {
+        transition: 0.4s;
+        height: calcVW(56);
+        row-gap: calcVW(0);
+        justify-content: space-around;
+        border-radius: 0 0 calcVW(16) calcVW(16);
+
+        .name {
+          height: calcVWL(18);
+          flex-direction: column;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &:hover {
+        .positionSection {
+          transition: 0.4s;
+          background: rgba(2, 13, 28, 0.73);
+          justify-content: space-around;
+          row-gap: calcVW(10);
+        }
+      }
+    }
+
+    .portfolioItem {
+      &:hover {
+        box-shadow: none;
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      height: calcVWL(320);
+      border-radius: calcVWL(16);
+
+      .imageContainer {
+        border-radius: calcVWL(16);
+        height: calcVWL(320);
+
+        .img {
+          border-radius: calcVWL(16) calcVWL(16) 0 0;
+          height: calcVWL(244);
+        }
+
+        .more {
+          gap: 10px;
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-700,
+            calcVWL(24),
+            #219fdb
+          );
+
+          img {
+            width: calcVWL(18);
+            height: calcVWL(18);
+          }
+        }
+
+        .positionSection {
+          height: calcVWL(76);
+          padding: calcVWL(16);
+
+          .name {
+            @include font-style(calcVWL(18), variables.$fw-700, normal, #fff);
+          }
+
+          .stacks {
+            gap: calcVWL(25);
+          }
+        }
+
+        &:hover {
+          height: calcVWL(420);
+          box-shadow: 0 42px 98px -42px #7811fe;
+
+          .img {
+            height: calcVWL(306);
+          }
+
+          .positionSection {
+            height: calcVWL(114);
+
+            .name {
+              @include font-style(calcVWL(18), variables.$fw-700, normal, #fff);
+            }
+
+            .stacks {
+              gap: calcVWL(25);
+
+              .icon {
+                width: calcVWL(24);
+                height: calcVWL(24);
+              }
+            }
+          }
+        }
+      }
+
+      .portfolio,
+      .portfolioItem {
+        width: calcVWL(405);
+
+        .positionSection {
+          height: calcVWL(56);
+          row-gap: calcVWL(0);
+          border-radius: 0 0 calcVWL(16) calcVWL(16);
+
+          .name {
+            height: calcVWL(18);
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        &:hover {
+          .positionSection {
+            row-gap: calcVWL(10);
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      height: calcVWT(320);
+      overflow: hidden;
+
+      .imageContainer {
+        .more {
+          gap: calcVWT(10);
+          @include font-style(calcVWT(18), variables.$fw-700, normal, #219fdb);
+
+          img {
+            width: calcVWT(18);
+            height: calcVWT(18);
+          }
+        }
+      }
+
+      .portfolioItem {
+        width: calcVWT(288);
+        height: calcVWT(300);
+
+        .img {
+          height: calcVWT(246);
+          border-radius: calcVWT(16) calcVWT(16) 0 0;
+        }
+
+        .positionSection {
+          height: calcVWT(54);
+          border-radius: 0 0 calcVWT(16) calcVWT(16);
+
+          .name {
+            height: calcVWT(44);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
+          }
+        }
+      }
+
+      .portfolio {
+        width: calcVWT(272);
+        height: calcVWT(300);
+
+        .img {
+          height: calcVWT(246);
+          border-radius: calcVWT(16) calcVWT(16) 0 0;
+        }
+
+        .positionSection {
+          height: calcVWT(54);
+          border-radius: 0 0 calcVWT(16) calcVWT(16);
+
+          .name {
+            height: calcVWT(44);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
+          }
+        }
+      }
+
+      &:hover {
+        height: calcVWT(340);
+        margin-top: calcVWT(-20);
+        margin-bottom: calcVWT(-20);
+
+        .portfolio,
+        .portfolioItem {
+          height: calcVWT(400);
+
+          .img {
+            height: calcVWT(272);
+          }
+
+          .positionSection {
+            height: calcVWT(128);
+
+            .stacks {
+              column-gap: calcVWT(24);
+              flex-wrap: nowrap;
+              min-width: max-content;
+              margin-left: calcVWT(-17);
+
+              .icon {
+                width: calcVWT(24);
+                height: calcVWT(22);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      height: calcVWM(280);
+      overflow: hidden;
+      border-radius: calcVWM(16);
+
+      .imageContainer {
+        .more {
+          gap: calcVWM(10);
+          @include font-style(calcVWM(18), variables.$fw-700, normal, #219fdb);
+
+          img {
+            width: calcVWM(18);
+            height: calcVWM(18);
+          }
+        }
+      }
+
+      .portfolio,
+      .portfolioItem {
+        border-radius: calcVWM(17);
+        width: 100%;
+        height: calcVWM(300);
+
+        .img {
+          height: calcVWM(250);
+        }
+
+        .positionSection {
+          height: calcVWM(30);
+        }
+      }
+
+      &:hover {
+        height: calcVWM(280);
+        margin-top: calcVWM(0);
+        margin-bottom: calcVWM(0);
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .mainWrapper-portfolio {
+      transition: all 0.4s;
+      height: calcVWT(400) !important;
+      margin-top: calcVWT(0) !important;
+      margin-bottom: calcVWT(0) !important;
+
+      .imageContainer {
+        &:hover {
+          box-shadow: none !important;
+        }
+      }
+
+      .portfolio {
+        .positionSection {
+          padding: 0 calcVWT(16);
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
+      }
+
+      &:hover {
+        .portfolio {
+          .img {
+            height: calcVWT(306) !important;
+          }
+
+          .positionSection {
+            height: calcVWT(94) !important;
+            justify-content: space-around;
+            row-gap: 0;
+
+            .stacks {
+              column-gap: calcVWT(16) !important;
+              flex-wrap: nowrap !important;
+              min-width: max-content !important;
+              margin: 0 auto !important;
+              height: max-content !important;
+
+              .icon {
+                width: calcVWT(22) !important;
+                height: calcVWT(22) !important;
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 576px) {
+        width: 100% !important;
+        height: calcVWM(300) !important;
+
+        .portfolio {
+          .img {
+            border-radius: calcVWM(16) calcVWM(16) 0 0;
+            height: calcVWM(246) !important;
+          }
+
+          .positionSection {
+            transition: all 0.4s;
+            border-radius: 0 0 calcVWT(16) calcVWT(16);
+            height: calcVWM(54) !important;
+            padding: 0;
+
+            .stacks {
+              height: 0;
+
+              .icon {
+                transition: all 0.4s;
+                height: 0 !important;
+              }
+            }
+
+            .name {
+              height: calcVWM(40);
+              @include font-style(
+                calcVWM(18) !important,
+                variables.$fw-700 !important,
+                calcVWM(22) !important,
+                #fff
+              );
+            }
+          }
+        }
+
+        &:hover {
+          height: calcVWM(400) !important;
+
+          .portfolio {
+            height: calcVWM(400) !important;
+
+            .img {
+              height: calcVWM(306) !important;
+            }
+
+            .positionSection {
+              transition: all 0.4s;
+              height: calcVWM(94) !important;
+              padding: calcVWM(10) 0;
+
+              .stacks {
+                column-gap: calcVWM(20) !important;
+                flex-wrap: nowrap !important;
+                min-width: max-content !important;
+                margin: 0 auto !important;
+                height: calcVWM(22) !important;
+
+                .icon {
+                  transition: all 0.4s;
+                  width: calcVWM(22) !important;
+                  height: calcVWM(22) !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mainWrapper-portfolioItem {
+      transition: all 0.4s;
+      height: calcVWT(400) !important;
+      margin-top: calcVWT(0) !important;
+      margin-bottom: calcVWT(0) !important;
+
+      .imageContainer {
+        &:hover {
+          box-shadow: none !important;
+        }
+      }
+
+      .portfolioItem {
+        .positionSection {
+          padding: 0 calcVWT(16);
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
+      }
+
+      &:hover {
+        .portfolioItem {
+          .img {
+            height: calcVWT(306) !important;
+          }
+
+          .positionSection {
+            height: calcVWT(94) !important;
+            justify-content: space-around;
+            row-gap: 0;
+
+            .stacks {
+              column-gap: calcVWT(16) !important;
+              flex-wrap: nowrap !important;
+              min-width: max-content !important;
+              margin: 0 auto !important;
+              height: max-content !important;
+
+              .icon {
+                width: calcVWT(22) !important;
+                height: calcVWT(22) !important;
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 576px) {
+        width: 100% !important;
+        height: calcVWM(300) !important;
+
+        .portfolioItem {
+          .img {
+            border-radius: calcVWM(16) calcVWM(16) 0 0;
+            height: calcVWM(246) !important;
+          }
+
+          .positionSection {
+            border-radius: 0 0 calcVWT(16) calcVWT(16);
+            height: calcVWM(54) !important;
+            padding: 0 calcVWM(16) !important;
+
+            .name {
+              transition: 0.4s;
+              height: calcVWM(54);
+              @include font-style(
+                calcVWM(18) !important,
+                variables.$fw-700 !important,
+                calcVWM(22) !important,
+                #fff
+              );
+            }
+          }
+        }
+
+        &:hover {
+          height: calcVWM(400) !important;
+
+          .portfolioItem {
+            height: calcVWM(400) !important;
+
+            .img {
+              height: calcVWM(306) !important;
+            }
+
+            .positionSection {
+              padding: calcVWM(10) 0;
+              height: calcVWM(94) !important;
+
+              .stacks {
+                column-gap: calcVWM(20) !important;
+                flex-wrap: nowrap !important;
+                min-width: max-content !important;
+                margin: 0 auto !important;
+                height: max-content !important;
+
+                .icon {
+                  width: calcVWM(22) !important;
+                  height: calcVWM(22) !important;
+                }
+              }
+
+              .name {
+                transition: 0.4s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .moreCard {
+    @media (max-width: 1024px) {
+      &:hover {
+        overflow: unset;
+      }
+    }
+
+    @media (max-width: 576px) {
+      overflow: unset;
+
+      &:hover {
+        .moreWrapper {
+          height: calcVWM(300);
+        }
+      }
+    }
+  }
+
+  .moreWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid variables.$light-blue;
+    border-radius: calcVW(16);
+    background: rgba(0, 0, 0, 0.32);
+    height: getOurProjectCardSizes(project-card-height);
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      border-radius: calcVWL(16);
+      height: calcVWL(300);
+    }
+  }
+}

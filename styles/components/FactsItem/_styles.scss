@@ -1,0 +1,98 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-facts-item-styles {
+  .factsItemWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 16px;
+    width: getAboutItemSizes(facts-item-width);
+    height: getAboutItemSizes(facts-item-height);
+    padding: getAboutItemSizes(facts-item-p);
+    background: transparent;
+
+    .title {
+      margin: getAboutItemSizes(facts-item-title-m);
+      @include font-style(
+        getAboutItemSizes(facts-item-title-fz),
+        variables.$fw-400,
+        getAboutItemSizes(facts-item-title-lh),
+        variables.$main-white
+      );
+    }
+
+    .result {
+      @include font-style(
+        getAboutItemSizes(facts-item-result-fz),
+        variables.$fw-400,
+        getAboutItemSizes(facts-item-result-lh),
+        variables.$light-blue
+      );
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(296);
+      height: calcVWL(163);
+
+      padding: calcVWL(32);
+
+      .title {
+        margin: calcVWL(10) 0;
+        @include font-style(
+          calcVWL(18),
+          variables.$fw-400,
+          calcVWL(24),
+          variables.$main-white
+        );
+      }
+
+      .result {
+        @include font-style(
+          calcVWL(48),
+          variables.$fw-400,
+          calcVWL(50),
+          variables.$light-blue
+        );
+      }
+    }
+
+    @media (max-width: 1024px) {
+      width: calcVWT(208);
+      row-gap: calcVWT(16);
+      justify-content: flex-start;
+      flex-direction: column;
+      height: unset;
+      .result {
+        @include font-style(
+          calcVWT(48),
+          variables.$fw-400,
+          calcVWT(59),
+          variables.$light-blue
+        );
+      }
+      .title {
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+        max-width: calcVWT(144);
+      }
+    }
+    @media (max-width: 576px) {
+      padding: calcVWM(16);
+      row-gap: calcVWM(16);
+      width: calcVWM(155);
+      height: calcVWM(155);
+      .result {
+        @include font-style(
+          calcVWM(48),
+          variables.$fw-400,
+          normal,
+          variables.$light-blue
+        );
+      }
+      .title {
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        max-width: calcVWM(144);
+      }
+    }
+  }
+}

@@ -1,0 +1,342 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-portfolio-item-styles {
+  .profilePage {
+    display: flex;
+    justify-content: center;
+
+    .content {
+      width: getPortfolioMainSizes(content-width);
+      margin: getPortfolioMainSizes(content-mt) auto 0 auto;
+
+      .itemDescription {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        margin: auto auto 0 auto;
+        gap: calcVW(96);
+        width: calcVW(1280);
+        min-height: calcVW(700);
+        //Search to do
+        padding: calcVW(16) 0 calcVW(64) 0;
+
+        .imageCard {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: calcVW(624);
+          height: calcVW(874);
+          padding: calcVW(64);
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: calcVW(16);
+            box-shadow: 0px 22px 116px -60px #7811fe;
+          }
+        }
+
+        .testSection {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: calcVW(30);
+          width: calcVW(624);
+
+          .stacks {
+            display: flex;
+            gap: calcVW(40);
+
+            .icon {
+              width: calcVW(40);
+              height: calcVW(40);
+              object-fit: cover;
+            }
+          }
+        }
+      }
+
+    }
+
+    .whiteSection {
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      width: 100%;
+
+      .portfoliosSection {
+        width: getPortfolioMainSizes(content-width);
+        margin-top: calcVW(205);
+
+        .text {
+          padding: 0 calcVW(24);
+        }
+
+        .text>div>div>div {
+          color: black;
+        }
+
+        .projects {
+          width: 100%;
+          margin-top: calcVW(120);
+        }
+
+        .buttonWrapper {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          margin-top: calcVW(110);
+        }
+
+        .buttonWrapper>button {
+          width: calcVW(268);
+          cursor: pointer;
+          @include font-style(calcVW(18),
+            variables.$fw-700,
+            calcVW(22),
+            variables.$light-blue );
+
+          &:hover {
+            background: initial;
+            border: none;
+            @include font-style(calcVW(18),
+              variables.$fw-700,
+              calcVW(22),
+              variables.$light-blue );
+            transition: none;
+          }
+        }
+      }
+
+      .knowMoreSection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: calcVW(256) 0 calcVW(128);
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .content {
+        width: calcVWL(1280);
+
+        .itemDescription {
+          gap: calcVWL(96);
+          width: calcVWL(1280);
+          min-height: calcVWL(700);
+          padding: calcVWL(32) 0 calcVWL(64) 0;
+
+          .imageCard {
+            width: calcVWL(624);
+            height: calcVWL(874);
+            padding: calcVWL(64);
+
+          }
+
+          .testSection {
+            gap: calcVWL(30);
+            width: calcVWL(624);
+
+            .stacks {
+              gap: calcVWL(32);
+
+              .icon {
+                width: calcVWL(40);
+                height: calcVWL(40);
+              }
+            }
+          }
+        }
+      }
+
+      .whiteSection {
+        .portfoliosSection {
+          width: calcVWL(1280);
+
+          .text {
+            padding: 0 calcVWL(24);
+          }
+
+          .buttonWrapper>button {
+            width: calcVWL(268);
+            @include font-style(calcVWL(18),
+              variables.$fw-700,
+              calcVWL(22),
+              variables.$light-blue );
+
+            &:hover {
+              @include font-style(calcVWL(18),
+                variables.$fw-700,
+                calcVWL(22),
+                variables.$light-blue );
+            }
+          }
+        }
+
+        .knowMoreSection {
+          margin: calcVWL(275) 0 calcVWL(128);
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .content {
+        min-height: calcVWT(682);
+        width: calcVWT(928);
+        margin-top: calcVWT(135);
+
+        .itemDescription {
+          margin-top: calcVWT(100);
+          margin-bottom: calcVWT(20);
+          width: calcVWT(928);
+          padding: calcVWT(0) 0 calcVWT(32) 0 !important;
+
+          .imageCard {
+            width: calcVWT(422);
+            height: calcVWT(636);
+            padding: 0;
+            object-fit: cover;
+          }
+
+          .testSection {
+            width: calcVWT(473);
+            justify-content: flex-end;
+
+            .stacks {
+              gap: calcVWT(32);
+              padding-left: calcVWT(24);
+
+              .icon {
+                width: calcVWT(40);
+                height: calcVWT(40);
+              }
+            }
+          }
+        }
+      }
+
+      .whiteSection {
+        .portfoliosSection {
+          width: calcVWT(928);
+
+          .text {
+            padding: 0;
+            width: calcVWT(500);
+          }
+
+          .buttonWrapper {
+            margin-top: calcVWT(35);
+          }
+
+          .buttonWrapper>button {
+            width: calcVWT(268);
+            cursor: pointer;
+            padding: calcVWT(32) 0;
+            @include font-style(calcVWT(18),
+              variables.$fw-700,
+              calcVWT(22),
+              variables.$light-blue );
+            letter-spacing: 0.7px;
+
+            &:hover {
+              background: initial;
+              border: none;
+              @include font-style(calcVWT(18),
+                variables.$fw-700,
+                calcVWT(22),
+                variables.$light-blue );
+              transition: none;
+            }
+          }
+        }
+
+        .knowMoreSection {
+          margin: calcVWT(212) 0 calcVWT(128);
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      background-image: linear-gradient(to bottom,
+          #060e1d calcVWM(630),
+          white 0);
+
+      .content {
+        height: max-content;
+        min-height: auto;
+        margin-top: calcVWM(0);
+
+        .itemDescription {
+          gap: CalcVWM(32);
+          justify-content: center;
+          height: max-content;
+          width: 100%;
+
+          .imageCard {
+            padding: calcVWM(64) 0;
+            position: inherit;
+            width: calcVWM(343);
+            height: max-content;
+
+            img {
+              border-radius: calcVWM(16);
+            }
+          }
+
+          .testSection {
+            width: 100%;
+
+            .stacks {
+              gap: calcVWM(32);
+
+              .icon {
+                width: calcVWM(40);
+                height: calcVWM(40);
+              }
+            }
+          }
+        }
+      }
+
+      .whiteSection {
+        .portfoliosSection {
+          width: calcVWM(343);
+
+          .text {
+            width: unset;
+          }
+
+          .buttonWrapper {
+            margin-top: calcVWM(40);
+            justify-content: flex-start;
+          }
+
+          .buttonWrapper>button {
+            width: calcVWM(268);
+            cursor: pointer;
+            @include font-style(calcVWM(18),
+              variables.$fw-700,
+              calcVWM(22),
+              variables.$light-blue );
+
+            &:hover {
+              background: initial;
+              border: none;
+              @include font-style(calcVWM(18),
+                variables.$fw-700,
+                calcVWM(22),
+                variables.$light-blue );
+              transition: none;
+            }
+          }
+        }
+
+        .knowMoreSection {
+          margin: calcVWM(60) 0 calcVWM(64);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-about-company-of-experts-styles {
+  .aboutCompanyOfExperts {
+    .aboutCompanyContent {
+      @include flex(space-between, center, row, wrap);
+      width: 100%;
+    }
+
+    .aboutCompanyTitle {
+      margin: calcVW(32) 0 !important;
+      margin-top: calcVW(364) !important;
+      @include flex(null, center);
+      @include font-style(
+        getCompanyOfExpertsSizes(title-fz),
+        variables.$fw-500,
+        getCompanyOfExpertsSizes(title-lh)
+      );
+    }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  
+      .aboutCompanyTitle {
+        margin: calcVWL(32) 0 !important;
+        margin-top: calcVWL(364) !important;
+        @include font-style(
+          calcVWL(36),
+          variables.$fw-500,
+          calcVWL(44),
+        );
+      }
+    }
+    @media (max-width: 1024px) {
+      margin-top: calcVWT(56) !important;
+      .aboutCompanyTitle {
+        @include font-style(
+          calcVWT(36),
+          variables.$fw-500,
+          calcVWT(44),
+          variables.$white
+        );
+      }
+    }
+    @media (max-width: 576px) {
+      margin-top: calcVWM(105) !important;
+      .aboutCompanyTitle {
+        margin-bottom: calcVWM(32) !important;
+        @include font-style(
+          calcVWM(36),
+          variables.$fw-500,
+          calcVWM(44),
+          variables.$white
+        );
+      }
+      .aboutCompanyContent {
+        row-gap: calcVWM(32);
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-careers-styles {
+  .content {
+    width: getCareersSizes(content-width);
+    margin: getCareersSizes(content-mt) auto 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .aboutContent {
+      @include flex(space-between, center, column);
+    }
+
+    .pageHeader {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: calcVW(32);
+      z-index: 2;
+      max-width: calcVW(1220);
+
+      .title {
+        @include font-style(calcVW(48), variables.$fw-400, calcVW(58));
+      }
+
+      .subTitle {
+        display: flex;
+        gap: calcVW(10);
+
+        @include font-style(calcVW(36), variables.$fw-700, calcVW(44));
+
+        div:last-child {
+          color: variables.$light-blue;
+        }
+      }
+
+      .info {
+        text-align: center;
+
+        @include font-style(calcVW(24), variables.$fw-400, calcVW(32));
+      }
+    }
+
+    .secondInfo {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: calcVW(32);
+      margin: calcVW(320) 0 calcVW(32) 0;
+
+      .secondTitle {
+        @include font-style(
+          getCareersSizes(content-second-title-fz),
+          variables.$fw-400,
+          getCareersSizes(content-second-title-lh)
+        );
+      }
+
+      .secondDescription {
+        p {
+          text-align: center;
+          margin-bottom: calcVW(8);
+
+          @include font-style(calcVW(24), variables.$fw-400, calcVW(24), #fff);
+        }
+      }
+    }
+
+    .weKnowSection {
+      margin: getCareersSizes(what-we-know-section-margin);
+    }
+
+    .contactUsWrapper {
+      margin: calcVW(448) 0 calcVW(384);
+    }
+
+    .worldMap {
+      width: 100%;
+      height: 100%;
+      margin: calcVW(168) 0;
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1280);
+      margin: calcVWL(478) auto 0 auto;
+      align-items: center;
+    }
+
+    @media (max-width: 1024px) {
+      width: calcVWT(928);
+      margin-top: calcVWT(234);
+
+      .worldMap {
+        margin: calcVWT(138) 0;
+      }
+      .pageHeader {
+        max-width: calcVWT(840);
+        margin: 0 auto;
+
+        .title {
+          @include font-style(calcVWT(36), variables.$fw-400, calcVWT(43));
+        }
+
+        .subTitle {
+          @include font-style(calcVWT(32), variables.$fw-400, calcVWT(39));
+        }
+
+        .info {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+      }
+
+      .secondInfo {
+        margin-top: calcVWT(184);
+        row-gap: calcVWT(32);
+        .secondTitle {
+          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43));
+        }
+
+        .secondDescription {
+          p {
+            margin-bottom: calcVWT(8);
+            @include font-style(
+              calcVWT(24),
+              variables.$fw-400,
+              calcVWT(24),
+              #fff
+            );
+          }
+        }
+      }
+
+      .jobTable {
+        width: 100%;
+      }
+
+      .weKnowSection {
+        margin: calcVWT(256) 0 0 0;
+      }
+
+      .contactUsWrapper {
+        margin: calcVWT(320) 0 0 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      width: calcVWM(343);
+      margin-top: calcVWM(80);
+      .pageHeader {
+        display: flex;
+        gap: calcVWM(32);
+        max-width: calcVWM(840);
+        margin: 0 auto;
+
+        .title {
+          @include font-style(calcVWM(36), variables.$fw-400, calcVWM(43));
+        }
+
+        .subTitle {
+          @include font-style(calcVWM(36), variables.$fw-700, calcVWM(43));
+          justify-content: center;
+        }
+
+        .info {
+          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+        }
+      }
+
+      .pageHeader > div {
+        margin: 0;
+      }
+
+      .secondInfo {
+        margin: calcVWM(128) 0 0;
+
+        .secondTitle {
+          @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43));
+        }
+
+        .secondDescription {
+          margin-top: calcVWM(32);
+          p {
+            margin-bottom: calcVWM(8);
+            @include font-style(
+              calcVWM(24),
+              variables.$fw-400,
+              calcVWM(24),
+              #fff
+            );
+          }
+        }
+      }
+
+      .weKnowSection {
+        margin: calcVWM(192) 0 0 0;
+      }
+
+      .contactUsWrapper {
+        margin: calcVWM(104) 0 0 0;
+      }
+
+      .worldMap {
+        margin: calcVWM(104) 0 calcVWM(96);
+      }
+    }
+  }
+}

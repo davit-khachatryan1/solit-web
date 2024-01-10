@@ -1,0 +1,629 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-careers-item-styles {
+  .content {
+    width: getCareersSizes(content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .shareButtons {
+    display: flex;
+    flex-direction: column;
+    row-gap: calcVW(16);
+
+
+    .title {
+      @include font-style(calcVW(18),
+        variables.$fw-700,
+        normal,
+        variables.$black );
+    }
+
+    .description {
+      font-size: calcVW(24);
+    }
+
+    button {
+      width: 100% !important;
+      display: flex;
+      flex-direction: row-reverse;
+      min-height: calcVW(60);
+
+      &:nth-child(2) {
+        button {
+          background-color: #0088cc !important;
+          border-color: #0088cc !important;
+        }
+      }
+
+      &:nth-child(3) {
+        button {
+          background-color: #25D366 !important;
+          border-color: #25D366 !important;
+        }
+      }
+
+      &:nth-child(4) {
+        button {
+          background-color: #0077b5 !important;
+          border-color: #0077b5 !important;
+        }
+      }
+
+      button {
+        color: variables.$white !important
+      }
+    }
+
+    .shareLink {
+      padding: calcVW(16);
+      border-radius: calcVW(8);
+      border: 1px solid rgba(102, 108, 113, .2);
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      position: relative;
+
+      .copyButtonTooltip {
+        padding: calcVW(6) calcVW(15);
+        width: max-content;
+        position: absolute;
+        z-index: 999;
+        right: 10px;
+        top: calcVW(50);
+        right: calcVW(-15);
+        border-radius: calcVW(10);
+        background: rgba(0, 0, 0, 0.719);
+        color: white;
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .bottomBlock {
+
+    .h1Title {
+      @include font-style(calcVW(48), variables.$fw-400, normal);
+      text-align: center
+    }
+
+    strong {
+      @include font-style(calcVW(36), variables.$fw-500, calcVW(32));
+    }
+
+    li {
+      @include font-style(calcVW(18),
+        variables.$fw-400,
+        calcVW(24));
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: calcVW(32);
+    margin: calcVW(386) auto calcVW(320) auto;
+    color: white;
+
+    .blockItemImage {
+      h2 {
+        @include font-style(calcVW(48), variables.$fw-400, normal);
+      }
+
+      p {
+        @include font-style(calcVW(24), variables.$fw-400, calcVW(32));
+      }
+
+      li {
+        @include font-style(calcVW(24), variables.$fw-400, calcVW(32));
+      }
+
+      strong {
+        @include font-style(calcVW(24), variables.$fw-500, calcVW(32));
+      }
+
+      img {
+        max-width: 100%;
+        height: auto !important;
+      }
+    }
+
+    .backSection {
+      display: flex;
+      justify-content: space-between;
+      padding: calcVW(24);
+      background-color: #1c2844;
+
+      .back {
+        cursor: pointer;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: calcVW(10);
+        }
+
+        span {
+          @include font-style(calcVW(20), variables.$fw-500, calcVW(32));
+          display: flex;
+          align-items: center;
+          column-gap: calcVW(8);
+        }
+
+        img {
+          width: calcVW(24);
+          height: calcVW(24);
+        }
+      }
+
+      .share {
+        display: flex;
+        gap: calcVW(10);
+        align-items: center;
+        cursor: pointer;
+
+        span {
+          @include font-style(calcVW(18),
+            variables.$fw-700,
+            calcVW(24),
+            variables.$light-blue );
+        }
+
+        img {
+          width: calcVW(24);
+          height: calcVW(24);
+        }
+      }
+    }
+
+    .blockItems {
+      justify-content: space-between;
+      margin-top: calcVW(320);
+    }
+
+    .info {
+      display: flex;
+      gap: calcVW(190);
+
+      span {
+        @include font-style(calcVW(24), variables.$fw-500, calcVW(32), variables.$main-dark-blue);
+        min-width: calcVW(190);
+      }
+
+      li {
+        @include font-style(calcVW(24), variables.$fw-400, calcVW(32));
+      }
+
+      p {
+        width: calcVW(840);
+      }
+
+      .responsibilities {
+        margin-top: calcVW(-2);
+      }
+    }
+
+    .secondDescriptionLast {
+      margin-top: calcVW(32);
+
+      ul {
+        padding-left: calcVW(20);
+        margin-top: calcVW(32);
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+  }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .content {
+      width: calcVWL(1280);
+    }
+
+
+    .shareButtons {
+      row-gap: calcVWL(16);
+
+      .title {
+        font-size: calcVWL(18);
+      }
+
+      .description {
+        font-size: calcVWL(24);
+      }
+
+      button {
+        padding: calcVWL(16);
+        border-radius: calcVWL(8);
+      }
+    }
+
+    .bottomBlock {
+      .h1Title {
+        @include font-style(calcVWL(48), variables.$fw-400, normal);
+      }
+
+      strong {
+        @include font-style(calcVWL(36), variables.$fw-500, calcVWL(32));
+      }
+
+      li {
+        @include font-style(calcVWL(18),
+          variables.$fw-400,
+          calcVWL(24));
+      }
+
+      gap: calcVWL(32);
+      margin: calcVWL(386) auto calcVWL(320) auto;
+
+      .blockItemImage {
+        h2 {
+          @include font-style(calcVWL(48), variables.$fw-400, normal);
+        }
+
+        p {
+          @include font-style(calcVWL(24), variables.$fw-400, calcVWL(32));
+        }
+
+        li {
+          @include font-style(calcVWL(24), variables.$fw-400, calcVWL(32));
+        }
+
+        strong {
+          @include font-style(calcVWL(24), variables.$fw-500, calcVWL(32));
+        }
+      }
+
+      .backSection {
+        padding: calcVWL(24);
+
+        .back {
+          a {
+            gap: calcVWL(10);
+
+          }
+
+          span {
+            @include font-style(calcVWL(20), variables.$fw-500, calcVWL(32));
+            column-gap: calcVWL(8);
+          }
+
+          img {
+            width: calcVWL(24);
+            height: calcVWL(24);
+          }
+        }
+
+        .share {
+          gap: calcVWL(10);
+
+          span {
+            @include font-style(calcVWL(18),
+              variables.$fw-700,
+              calcVWL(24),
+              variables.$light-blue );
+          }
+
+          img {
+            width: calcVWL(24);
+            height: calcVWL(24);
+          }
+        }
+      }
+
+      .blockItems {
+        margin-top: calcVWL(320);
+      }
+
+      .info {
+        gap: calcVWL(190);
+
+        span {
+          @include font-style(calcVWL(24), variables.$fw-500, calcVWL(32), variables.$main-dark-blue);
+          min-width: calcVWL(190);
+        }
+
+        li {
+          @include font-style(calcVWL(24), variables.$fw-400, calcVWL(32));
+        }
+
+        p {
+          width: calcVWL(840);
+        }
+
+        .responsibilities {
+          margin-top: calcVWL(-2);
+        }
+      }
+
+      .secondDescriptionLast {
+        margin-top: calcVWL(32);
+
+        ul {
+          padding-left: calcVWL(20);
+          margin-top: calcVWL(32);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .content {
+      width: calcVWT(928);
+    }
+
+    .shareButtons {
+      row-gap: calcVWT(16);
+
+      .title {
+        font-size: calcVWT(18);
+      }
+
+      .description {
+        font-size: calcVWT(24);
+      }
+
+      button {
+        padding: calcVWT(16);
+        border-radius: calcVWT(8);
+      }
+    }
+
+    .bottomBlock {
+      margin: calcVWT(234) auto calcVWT(192) auto;
+
+      .h1Title {
+        @include font-style(calcVWT(48), variables.$fw-400, normal);
+      }
+
+      .blockItemImage {
+        padding: calcVWT(32) calcVWT(128) 0 calcVWT(128);
+      }
+
+      strong {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(32));
+      }
+
+      li {
+        @include font-style(calcVWT(18),
+          variables.$fw-400,
+          calcVWT(24));
+      }
+
+      .blockItemImage {
+        h2 {
+          @include font-style(calcVWT(48), variables.$fw-400, normal);
+        }
+
+        p {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+
+        li {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+
+        strong {
+          @include font-style(calcVWT(24), variables.$fw-500, calcVWT(32));
+        }
+      }
+
+      .backSection {
+        padding: calcVWT(24);
+
+        .back {
+          a {
+            gap: calcVWT(10);
+          }
+
+          span {
+            @include font-style(calcVWT(20), variables.$fw-500, calcVWT(32));
+            column-gap: calcVWT(8);
+          }
+
+          img {
+            width: calcVWT(24);
+            height: calcVWT(24);
+          }
+        }
+
+        .share {
+          gap: calcVWT(10);
+
+          span {
+            @include font-style(calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              variables.$light-blue );
+          }
+
+          img {
+            width: calcVWT(24);
+            height: calcVWT(24);
+          }
+        }
+      }
+
+      .info {
+        gap: calcVWT(190);
+
+        span {
+          @include font-style(calcVWT(24), variables.$fw-500, calcVWT(32), variables.$main-dark-blue);
+          min-width: calcVWT(190);
+        }
+
+        li {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+
+        p {
+          width: auto;
+        }
+
+        .responsibilities {
+          margin-top: calcVWT(-2);
+        }
+      }
+
+      .blockItems {
+        margin-top: calcVWT(200);
+        width: calc(100% + calcVWT(48));
+        margin-left: calcVWT(-24);
+      }
+
+      .secondDescriptionLast {
+        margin-top: calcVWT(32);
+
+        ul {
+          padding-left: calcVWT(20);
+          margin-top: calcVWT(32);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .content {
+      width: calcVWM(343);
+    }
+
+    .shareButtons {
+      row-gap: calcVWM(16);
+
+      .title {
+        font-size: calcVWM(18);
+      }
+
+      .description {
+        font-size: calcVWM(24);
+      }
+
+      button {
+        padding: calcVWM(16);
+        border-radius: calcVWM(8);
+      }
+    }
+
+    .bottomBlock {
+      margin: calcVWM(114) auto calcVWM(82) auto;
+
+      .h1Title {
+        @include font-style(calcVWM(36), variables.$fw-400, normal);
+      }
+
+      .blockItemImage {
+        padding: 0;
+      }
+
+      strong {
+        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(32));
+      }
+
+      li {
+        @include font-style(calcVWM(18),
+          variables.$fw-400,
+          calcVWM(24));
+      }
+
+      .blockItemImage {
+        h2 {
+          @include font-style(calcVWM(36), variables.$fw-400, normal);
+        }
+
+        p {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
+        }
+
+        li {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
+        }
+
+        strong {
+          @include font-style(calcVWM(18), variables.$fw-500, calcVWM(32));
+        }
+      }
+
+      .backSection {
+        padding: calcVWM(18);
+
+        .back {
+          a {
+            gap: calcVWM(10);
+          }
+
+          span {
+            @include font-style(calcVWM(20), variables.$fw-500, calcVWM(32));
+            column-gap: calcVWM(8);
+          }
+
+          img {
+            width: calcVWM(18);
+            height: calcVWM(18);
+          }
+        }
+
+        .share {
+          gap: calcVWM(10);
+
+          span {
+            @include font-style(calcVWM(18),
+              variables.$fw-700,
+              calcVWM(24),
+              variables.$light-blue );
+          }
+
+          img {
+            width: calcVWM(18);
+            height: calcVWM(18);
+          }
+        }
+      }
+
+      .info {
+        flex-direction: column;
+        gap: calcVW(1);
+        margin-top: calcVWM(50);
+
+        span {
+          @include font-style(calcVWM(18), variables.$fw-500, calcVWM(32), variables.$main-dark-blue);
+          min-width: calcVWM(190);
+        }
+
+        li {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
+        }
+
+        p {
+          width: auto;
+          padding-left: calcVWM(10);
+        }
+
+        .responsibilities {
+          margin-top: calcVWM(-2);
+        }
+      }
+
+      .blockItems {
+        margin: 0;
+        margin-top: calcVWM(150);
+        width: 100%;
+      }
+
+      .secondDescriptionLast {
+        margin-top: calcVWM(32);
+
+        ul {
+          padding-left: calcVWM(20);
+          margin-top: calcVWM(32);
+        }
+      }
+    }
+  }
+}

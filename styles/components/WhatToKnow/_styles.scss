@@ -1,0 +1,105 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-what-to-know-styles {
+  .whatToKnowWrapper {
+    width: 100%;
+    z-index: 100;
+    @include flex(center, center);
+
+    .context {
+      @include flex(center, center, column);
+      gap: getWhatToKnowSizes(what-to-know-context-gap);
+      width: getWhatToKnowSizes(what-to-know-context-width);
+
+      .title {
+        @include font-style(
+          getWhatToKnowSizes(what-to-know-title-fz),
+          variables.$fw-500,
+          calcVW(58)
+        );
+      }
+
+      .description {
+        text-align: center;
+        @include font-style(
+          getWhatToKnowSizes(what-to-know-description-fz),
+          variables.$fw-400,
+          getWhatToKnowSizes(what-to-know-description-lh),
+          #fff
+        );
+      }
+
+      .button {
+        @include font-style(
+          getWhatToKnowSizes(button-fz),
+          variables.$fw-400,
+          getWhatToKnowSizes(button-lh),
+          #fff
+        );
+      }
+    }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .context {
+        gap: calcVWL(20);
+        width: calcVWL(672);
+        height: calcVWL(228);
+
+        .title {
+          @include font-style(calcVWL(36), variables.$fw-400, calcVWL(40));
+        }
+
+        .description {
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            #fff
+          );
+        }
+
+        .button {
+          @include font-style(
+            calcVWL(20),
+            variables.$fw-400,
+            calcVWL(24),
+            #fff
+          );
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      .context {
+        width: calcVWT(672);
+        gap: calcVWT(32);
+        justify-content: center;
+
+        .title {
+          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(60));
+        }
+
+        .description {
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      .context {
+        width: 100%;
+        height: max-content;
+        justify-content: space-between;
+        row-gap: calcVWM(32);
+        .title {
+          @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
+          text-align: center;
+          position: relative;
+          z-index: 10;
+        }
+
+        .description {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,537 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-discuss-project-styles {
+  .form {
+    width: 100%;
+    input:not([type="range"]) {
+      &::after {
+        display: none;
+      }
+    }
+    label {
+      color: black !important;
+    }
+
+    input {
+      border: 0;
+    }
+
+    .industryInput {
+      input {
+        @include font-style(
+          calcVW(18),
+          variables.$fw-400,
+          normal,
+          variables.$black
+        );
+        padding: 0;
+        &:focus {
+          border-color: unset;
+          border-right-width: unset;
+          outline: 0;
+          box-shadow: unset;
+        }
+
+        @media (max-width: 1024px) {
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            normal,
+            variables.$black
+          );
+        }
+        @media (max-width: 576px) {
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            normal,
+            variables.$black
+          );
+        }
+      }
+    }
+  }
+
+  .content {
+    width: getDiscussProjectSizes(content-width);
+    margin: getDiscussProjectSizes(content-mt) auto 0 auto;
+
+    .mainTitle {
+      max-width: calcVW(850);
+      padding-left: calcVW(24);
+    }
+
+    .discussProject {
+      margin: 0 0 calcVW(320);
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: calcVW(32);
+
+        .currentStageDiscuss {
+          a:first-of-type {
+            button {
+              height: calcVW(48);
+              background: variables.$light-blue;
+              @include font-style(
+                calcVW(13),
+                variables.$fw-700,
+                calcVW(19),
+                variables.$black
+              );
+
+              @media (max-width: 1024px) {
+                height: calcVWT(48);
+                @include font-style(
+                  calcVWT(13),
+                  variables.$fw-700,
+                  calcVWT(19),
+                  variables.$black
+                );
+              }
+
+              @media (max-width: 576px) {
+                height: unset;
+                @include font-style(
+                  calcVWM(13),
+                  variables.$fw-700,
+                  calcVWM(19),
+                  variables.$black
+                );
+              }
+            }
+          }
+        }
+
+        .buttons {
+          display: flex;
+          gap: calcVW(16);
+          margin-top: calcVW(25);
+          z-index: 100;
+
+          a {
+            button {
+              height: calcVW(48);
+
+              @include font-style(
+                calcVW(13),
+                variables.$fw-700,
+                calcVW(19),
+                variables.$gray
+              );
+
+              @media (max-width: 1024px) {
+                height: calcVWT(48);
+                text-align: start;
+                padding: calcVWT(8) calcVWT(16);
+                border-radius: calcVWT(8);
+
+                @include font-style(
+                  calcVWT(13),
+                  variables.$fw-700,
+                  calcVWT(19),
+                  variables.$gray
+                );
+              }
+
+              @media (max-width: 576px) {
+                height: unset;
+                padding: calcVWM(12) calcVWM(16);
+                border-radius: calcVWM(8);
+
+                @include font-style(
+                  calcVWM(13),
+                  variables.$fw-700,
+                  calcVWM(19),
+                  variables.$gray
+                );
+              }
+
+              &:hover {
+                background: variables.$light-blue;
+                @include font-style(
+                  calcVW(13),
+                  variables.$fw-700,
+                  calcVW(19),
+                  variables.$black
+                );
+
+                @media (max-width: 1024px) {
+                  @include font-style(
+                    calcVWT(13),
+                    variables.$fw-700,
+                    calcVWT(19),
+                    variables.$black
+                  );
+                }
+
+                @media (max-width: 576px) {
+                  @include font-style(
+                    calcVWM(13),
+                    variables.$fw-700,
+                    calcVWM(19),
+                    variables.$black
+                  );
+                }
+              }
+            }
+          }
+
+          @media (max-width: 1024px) {
+            margin-top: calcVWT(23);
+            gap: calcVWT(16);
+          }
+
+          @media (max-width: 576px) {
+            gap: calcVWM(16);
+          }
+        }
+
+        .industryDetails > button {
+          margin-top: calcVW(-35);
+        }
+
+        .industryDetails {
+          display: flex;
+          flex-direction: column;
+          gap: calcVW(70);
+
+          .industries {
+            display: flex;
+            flex-direction: column;
+            gap: calcVW(15);
+
+            :global(.ant-form-item) {
+              margin-bottom: 0px;
+            }
+
+            :global(.ant-slider-horizontal) {
+              margin-top: calcVW(90);
+            }
+
+            .title {
+              display: flex;
+              align-items: center;
+              height: calcVW(60);
+              position: relative;
+              @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
+
+              @media (max-width: 1024px) {
+                @include font-style(
+                  calcVWT(20),
+                  variables.$fw-700,
+                  calcVWT(24)
+                );
+              }
+
+              @media (max-width: 576px) {
+                @include font-style(
+                  calcVWM(20),
+                  variables.$fw-700,
+                  calcVWM(24)
+                );
+              }
+            }
+
+            .checkboxes {
+              display: flex;
+              flex-wrap: wrap;
+              column-gap: calcVW(24);
+              row-gap: calcVW(16);
+
+              @media (max-width: 576px) {
+                gap: calcVWM(24);
+                flex-direction: column;
+              }
+            }
+
+            .slider {
+              margin-bottom: calcVW(52);
+            }
+
+            .monthsWrapper {
+              display: flex;
+              justify-content: space-between;
+
+              margin: calcVW(8) calcVW(16) 0 0;
+
+              .month {
+                cursor: pointer;
+                text-align: left;
+                @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
+
+                @media (max-width: 1024px) {
+                  @include font-style(
+                    calcVWT(14),
+                    variables.$fw-700,
+                    calcVWT(24)
+                  );
+                }
+
+                @media (max-width: 576px) {
+                  width: calcVWM(40);
+                  @include font-style(
+                    calcVWM(10),
+                    variables.$fw-700,
+                    calcVWM(14)
+                  );
+                }
+              }
+            }
+          }
+        }
+
+        @media (max-width: 1024px) {
+          gap: calcVWT(32);
+        }
+
+        @media (max-width: 576px) {
+          gap: calcVWM(32);
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1280);
+      margin: calcVWL(462) auto 0 auto;
+
+      .mainTitle {
+        max-width: calcVWL(850);
+        padding-left: calcVWL(24);
+      }
+
+      .discussProject {
+        margin: 0 0 calcVWL(320);
+
+        .form {
+          gap: calcVWL(32);
+
+          .currentStageDiscuss {
+            a:first-of-type {
+              button {
+                height: calcVWL(48);
+                @include font-style(
+                  calcVWL(13),
+                  variables.$fw-700,
+                  calcVWL(19),
+                  variables.$black
+                );
+              }
+            }
+          }
+
+          .buttons {
+            gap: calcVWL(16);
+            margin-top: calcVWL(25);
+
+            a {
+              button {
+                height: calcVWL(48);
+
+                @include font-style(
+                  calcVWL(13),
+                  variables.$fw-700,
+                  calcVWL(19),
+                  variables.$gray
+                );
+
+                &:hover {
+                  @include font-style(
+                    calcVWL(13),
+                    variables.$fw-700,
+                    calcVWL(19),
+                    variables.$black
+                  );
+                }
+              }
+            }
+          }
+
+          .industryDetails > button {
+            margin-top: calcVWL(-35);
+          }
+
+          .industryDetails {
+            gap: calcVWL(70);
+
+            .industries {
+              gap: calcVWL(15);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWL(90);
+              }
+
+              .title {
+                height: calcVWL(60);
+                @include font-style(
+                  calcVWL(20),
+                  variables.$fw-700,
+                  calcVWL(24)
+                );
+              }
+
+              .checkboxes {
+                column-gap: calcVWL(24);
+                row-gap: calcVWL(16);
+              }
+
+              .slider {
+                margin-bottom: calcVWL(52);
+              }
+
+              .monthsWrapper {
+                margin-top: calcVWL(8);
+
+                .month {
+                  @include font-style(
+                    calcVWL(14),
+                    variables.$fw-500,
+                    calcVWL(24)
+                  );
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      width: calcVWT(928);
+      margin-top: calcVWT(240);
+
+      .mainTitle {
+        max-width: calcVWT(850);
+        padding-left: 0;
+      }
+
+      .discussProject {
+        .form {
+          .industryDetails > button {
+            margin-top: calcVWT(-29);
+          }
+
+          .industryDetails {
+            gap: calcVWT(64);
+
+            .industries {
+              padding: 0 calcVWT(24);
+              gap: calcVWT(16);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWT(80);
+              }
+
+              .title {
+                height: calcVWT(60);
+              }
+
+              .slider {
+                margin-bottom: calcVWT(52);
+              }
+
+              .monthsWrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-top: calcVWT(10);
+                margin-bottom: 0;
+              }
+
+              .checkboxes {
+                column-gap: calcVWT(24);
+                row-gap: calcVWT(16);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      width: calcVWM(343);
+      margin-top: calcVWM(82);
+
+      button:nth-child(1) {
+        max-width: calcVWM(163) !important;
+      }
+
+      button:nth-child(2) {
+        max-width: calcVWM(163) !important;
+      }
+
+      .discussProject {
+        margin-top: calcVWM(-26);
+
+        .form {
+          gap: calcVWM(32);
+          .buttons {
+            margin-top: calcVWM(30) !important;
+            margin-bottom: 0;
+            a {
+              button {
+                height: unset !important;
+                min-height: 100%;
+              }
+            }
+          }
+
+          .industryDetails > button {
+            margin-top: calcVWT(8);
+          }
+
+          .industryDetails {
+            .industries {
+              padding: 0;
+              gap: calcVWM(16);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWM(80);
+              }
+
+              .title {
+                height: unset;
+              }
+              .slider {
+                margin-bottom: calcVWM(52);
+              }
+
+              .monthsWrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: calcVWM(0);
+                margin-top: calcVWM(9);
+              }
+
+              .monthsWrapper div:nth-child(1) {
+                text-align: start;
+              }
+
+              .monthsWrapper div:nth-child(2) {
+                text-align: start;
+              }
+
+              .monthsWrapper div:nth-child(3) {
+                text-align: center;
+                width: calcVWM(25);
+              }
+
+              .monthsWrapper div:nth-child(4) {
+                text-align: end;
+              }
+
+              .monthsWrapper div:nth-child(5) {
+                text-align: end;
+              }
+
+              .checkboxes {
+                gap: calcVWM(16);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

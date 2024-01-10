@@ -1,0 +1,16 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$careers-sizes: (
+  content-mt: calcVW(396),
+  content-width: calcVW(1280),
+  what-we-know-section-margin: calcVW(384) auto 0 auto,
+  content-second-title-fz: calcVW(36),
+  content-second-title-lh: calcVW(44),
+  content-second-description-fz: calcVW(18),
+  content-second-description-lh: calcVW(24),
+);
+
+@function getCareersSizes($property) {
+  @return map-get($careers-sizes, $property);
+}

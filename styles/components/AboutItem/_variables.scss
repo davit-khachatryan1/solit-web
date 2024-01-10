@@ -1,0 +1,24 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$about-item-sizes: (
+  about-item-title-m: calcVW(18) 0,
+  about-item-title-fz: calcVW(24),
+  about-item-title-lh: calcVW(24),
+  about-item-desc-fz: calcVW(18),
+  about-item-desc-lh: calcVW(24),
+  about-item-height: calcVW(316),
+  about-item-width: calcVW(624),
+  about-item-height-wd: calcVW(332),
+  about-item-width-wd: calcVW(624),
+  about-item-gap: calcVW(16),
+  about-item-p: calcVW(32),
+  icon-width: calcVW(64),
+  icon-height: calcVW(64),
+  about-we-do-gap: calcVW(16),
+  about-we-do-p: calcVW(64) calcVW(32),
+);
+
+@function getAboutItemSizes($property) {
+  @return map-get($about-item-sizes, $property);
+}

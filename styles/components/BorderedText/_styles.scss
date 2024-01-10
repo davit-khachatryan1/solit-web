@@ -1,0 +1,21 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-bordered-text-styles {
+  .text {
+    height: calcVW(178);
+    width: auto;
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      height: calcVWL(178);
+    }
+
+    @media (max-width: 1024px) {
+      height: calcVWT(102);
+    }
+
+    @media (max-width: 576px) {
+      height: calcVWM(45);
+    }
+  }
+}

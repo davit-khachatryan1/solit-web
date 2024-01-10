@@ -1,0 +1,18 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$about-company-sizes: (
+  description-fz: calcVW(18),
+  description-lh: calcVW(24),
+  info-fz: calcVW(48),
+  info-lh: calcVW(65),
+  info-cg: calcVW(10),
+  main-rg: calcVW(28),
+  image-height: calcVW(45),
+  title-fz: calcVW(36),
+  title-lh: calcVW(44),
+);
+
+@function getCompanyOfExpertsSizes($property) {
+  @return map-get($about-company-sizes, $property);
+}

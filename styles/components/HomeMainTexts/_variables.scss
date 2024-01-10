@@ -1,0 +1,14 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$home-main-texts-sizes: (
+  home-main-title-fz: calcVW(48),
+  home-main-title-lh: calcVW(59),
+  home-main-first-text-fz: calcVW(24),
+  home-main-first-text-lh: calcVW(32),
+  home-main-first-text-mt: calcVW(24),
+);
+
+@function getHomeMainTextsSizes($property) {
+  @return map-get($home-main-texts-sizes, $property);
+}

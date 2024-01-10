@@ -1,0 +1,1130 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+//To do refactor
+
+@mixin generate-lets-talk-modal-styles {
+  .modalFormWrapper {
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-gap: calcVW(10);
+    gap: calcVW(10);
+
+    .textWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(16);
+
+      .bigText {
+        @include font-style(
+          calcVW(36),
+          variables.$fw-500,
+          normal,
+          variables.$black
+        );
+      }
+
+      .smallText {
+        @include font-style(
+          calcVW(18),
+          variables.$fw-400,
+          calcVW(24),
+          variables.$black
+        );
+      }
+    }
+
+    :global(.ant-select) {
+      .ant-selectant-selectant-selectant-select {
+        width: calcVW(20);
+        height: calcVW(20);
+      }
+    }
+
+    :global(.ant-select-dropdown) {
+      background-color: aqua !important;
+    }
+
+    .infoSection {
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(16);
+      max-width: 50%;
+      position: relative;
+      z-index: 1;
+
+      .title {
+        font-weight: 700;
+        font-size: calcVW(20);
+        line-height: calcVW(24);
+        color: #ffffff;
+      }
+
+      .info {
+        font-weight: 400;
+        font-size: calcVW(18);
+        line-height: calcVW(24);
+        color: #ffffff;
+      }
+    }
+
+    .fromButton {
+      :global(.ant-form-item):nth-child(7) {
+        order: 4;
+      }
+
+      :global(.ant-form-item):nth-child(3) {
+        order: 5;
+      }
+
+      :global(.ant-form-item):nth-child(4) {
+        order: 6;
+      }
+
+      :global(.ant-form-item):nth-child(6) {
+        order: 10;
+      }
+
+      :global(.ant-form-item):nth-child(8) {
+        order: 8;
+      }
+
+      :global(.ant-form-item):nth-child(5) {
+        order: 9;
+      }
+
+      :global(.ant-form-item):nth-child(9) {
+        order: 12;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 100%;
+      gap: calcVW(16);
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      input:not([type="range"]) {
+        &::after {
+          display: none;
+        }
+      }
+      .errorMessageRight {
+        :global(.ant-form-item-explain-error) {
+          transition: 0.1s;
+          transform: translateX(5px);
+        }
+      }
+
+      .errorMessageLeft {
+        :global(.ant-form-item-explain-error) {
+          transition: 0.1s;
+          transform: translateX(-5px);
+        }
+      }
+
+      .inputWithIcon {
+        label {
+          left: calcVW(32);
+        }
+
+        input {
+          padding-left: calcVW(36);
+        }
+      }
+
+      .uploadAntd {
+        width: 100%;
+
+        :global(.ant-upload-list) {
+          display: none;
+        }
+
+        :global(.ant-upload) {
+          width: 100%;
+        }
+
+        :global(.ant-input) {
+          @include font-style(
+            calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            variables.$black
+          );
+          caret-color: transparent;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: calcVW(370);
+          margin-left: calcVW(32);
+          margin-right: 0;
+        }
+      }
+
+      .buttonWrapper {
+        display: flex;
+        justify-content: center;
+
+        button {
+          @include font-style(
+            getModalFormSizes(button-fz),
+            variables.$fw-700,
+            getModalFormSizes(button-fl)
+          );
+        }
+      }
+
+      .suffix {
+        width: calcVW(24);
+        height: calcVW(24);
+      }
+
+      .accept {
+        margin-bottom: calcVW(40);
+        :global(.ant-form-item-control-input-content) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: calcVW(18);
+        }
+
+        :global(.ant-form-item-explain-connected) {
+          padding-left: calcVW(65);
+        }
+
+        :global(.ant-checkbox-inner) {
+          background: transparent !important;
+          border-color: black !important;
+          width: calcVW(20);
+          height: calcVW(20);
+          border-width: 2px;
+
+          &::after {
+            border: 2px solid #000;
+            border-top: 0;
+            border-left: 0;
+            left: 26.5%;
+          }
+        }
+
+        .acceptText {
+          @include font-style(
+            getPricingModal(text-fz),
+            variables.$fw-400,
+            getPricingModal(text-fl),
+            #000
+          );
+
+          a {
+            border-bottom: 1px solid black;
+            margin-left: calcVW(5);
+            @include font-style(
+              getPricingModal(text-fz),
+              variables.$fw-400,
+              getPricingModal(text-fl),
+              #000
+            );
+          }
+        }
+      }
+
+      .fromApply {
+        :global(.ant-form-item-explain-connected) {
+          padding-left: calcVW(95);
+        }
+      }
+
+      .uploadItem {
+        position: relative;
+
+        label {
+          left: calcVW(32);
+        }
+
+        .prefix {
+          position: absolute;
+          width: calcVW(24);
+          height: calcVW(25);
+        }
+
+        .removeFile {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: max-content;
+          cursor: pointer;
+          padding-left: 10px;
+          background: white;
+
+          img {
+            width: calcVW(24);
+            height: calcVW(24);
+          }
+        }
+      }
+
+      :global(.ant-input-affix-wrapper) {
+        height: 36px;
+        z-index: 0;
+        background: transparent;
+        border-bottom: 1px solid white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 0;
+      }
+
+      :global(.ant-input-affix-wrapper-status-error) {
+        border-color: red !important;
+      }
+
+      :global(.ant-input-affix-wrapper-focused) {
+        box-shadow: none;
+      }
+
+      :global(.ant-input-suffix) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: white;
+        bottom: calcVW(0);
+
+        @media (max-width: 1024px) {
+          bottom: calcVWT(-2);
+        }
+        @media only screen and (max-width: 736px) and (min-width: 688px) {
+          bottom: calcVWT(-10);
+        }
+        @media only screen and (max-width: 688px) and (min-width: 640px) {
+          bottom: calcVWT(-20);
+        }
+        @media only screen and (max-width: 640px) and (min-width: 592px) {
+          bottom: calcVWT(-30);
+        }
+
+        @media only screen and (max-width: 592px) and (min-width: 576px) {
+          bottom: calcVWT(-20);
+        }
+      }
+
+      .uploadFile {
+        color: #e5e5e5;
+
+        img {
+          display: none;
+        }
+
+        :global(img) {
+          display: none;
+        }
+      }
+
+      .inputSection {
+        display: flex;
+        flex-direction: column;
+        gap: calcVW(32);
+        width: 100%;
+        padding: calcVW(32) 0 calcVW(6);
+
+        :global(.ant-form-item) {
+          height: calcVW(48);
+
+          :global(.ant-form-item-row) {
+            margin-top: calcVW(13);
+          }
+
+          label {
+            color: black;
+          }
+        }
+
+        :global(.ant-input-status-success) {
+          color: #000 !important;
+        }
+      }
+
+      .filled {
+        background-color: aquamarine;
+      }
+
+      .focused {
+        background-color: aqua;
+
+        :global {
+          .ant-form-item-label > label {
+            font-size: calcVW(13);
+            color: #ffffff;
+          }
+        }
+      }
+
+      :global(.ant-input) {
+        position: relative;
+        width: 100%;
+        outline: 0;
+        border: 0;
+        border-bottom: 1px solid #ffffff;
+        transition: box-shadow 150ms ease-out;
+        background: transparent;
+        color: #ffffff;
+        @include font-style(
+          calcVW(18),
+          variables.$fw-400,
+          calcVW(24),
+          variables.$black
+        );
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      :global(.ant-form-item-label) {
+        position: absolute;
+        left: 0;
+        top: calcVW(10);
+        color: #999;
+        background-color: transparent;
+        z-index: 10;
+        transition: transform 150ms ease-out, font-size 150ms ease-out;
+      }
+
+      .input {
+        background: transparent;
+        color: #ffffff;
+      }
+
+      :global {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          background: transparent;
+          border-color: none;
+          box-shadow: 0 2px 0 0 rgb(207, 39, 39);
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
+          background: transparent;
+          border-color: none !important;
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          border-color: none;
+        }
+
+        .ant-form-item-label > label {
+          font-size: calcVW(16);
+          color: #ffffff;
+        }
+
+        .ant-input:focus + .ant-form-item-label > label {
+          color: blue;
+        }
+      }
+
+      .uploadItem {
+        .asPlaceholder {
+          padding-left: calcVW(30);
+        }
+
+        input[type="file"] {
+          width: 100%;
+          @include font-style(
+            calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            transparent !important
+          );
+          margin: 0;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .uploadedFile {
+        input[type="file"] {
+          margin-left: calcVW(-120);
+          margin-right: calcVW(120);
+          color: variables.$black !important;
+        }
+      }
+
+      :global(.ant-form-item-has-error) {
+        :global(.ant-form-item-control-input-content) {
+          div {
+            border-width: 0 !important;
+          }
+        }
+      }
+    }
+
+    .backImage {
+      width: calcVW(1920);
+      left: calcVW(-320);
+      position: absolute;
+      bottom: calcVW(-380);
+      height: calcVW(1380);
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      -webkit-gap: calcVWL(43);
+      gap: calcVWL(43);
+
+      .textWrapper {
+        gap: calcVWL(16);
+
+        .bigText {
+          @include font-style(
+            calcVWL(36),
+            variables.$fw-500,
+            normal,
+            variables.$black
+          );
+        }
+
+        .smallText {
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            variables.$black
+          );
+        }
+      }
+
+      :global(.ant-select) {
+        .ant-selectant-selectant-selectant-select {
+          width: calcVWL(20);
+          height: calcVWL(20);
+        }
+      }
+
+      .infoSection {
+        gap: calcVWL(16);
+
+        .title {
+          font-size: calcVWL(20);
+          line-height: calcVWL(24);
+        }
+
+        .info {
+          font-size: calcVWL(18);
+          line-height: calcVWL(24);
+        }
+      }
+
+      .form {
+        :global(.ant-input-suffix) {
+          bottom: calcVWL(-5);
+        }
+
+        .inputWithIcon {
+          label {
+            left: calcVWL(32);
+          }
+
+          input {
+            padding-left: calcVWL(36);
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: unset !important;
+          }
+        }
+
+        .uploadAntd {
+          :global(.ant-input) {
+            height: calcVWL(35);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              variables.$black
+            );
+            width: calcVWL(430);
+            margin-left: calcVWL(32);
+          }
+        }
+
+        gap: calcVWL(16);
+
+        .suffix {
+          width: calcVWL(24);
+          height: calcVWL(24);
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWL(18);
+          }
+
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWL(65);
+          }
+
+          :global(.ant-checkbox-inner) {
+            width: calcVWL(20);
+            height: calcVWL(20);
+          }
+
+          .acceptText {
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              #000
+            );
+
+            a {
+              @include font-style(
+                calcVWL(18),
+                variables.$fw-400,
+                calcVWL(24),
+                #000
+              );
+            }
+          }
+        }
+
+        .fromApply {
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWL(110);
+          }
+        }
+
+        .uploadItem {
+          label {
+            left: calcVWL(32);
+            top: calcVWL(1);
+          }
+
+          .prefix {
+            width: calcVWL(24);
+            height: calcVWL(25);
+          }
+
+          .removeFile {
+            img {
+              width: calcVWL(24);
+              height: calcVWL(24);
+            }
+          }
+        }
+
+        .inputSection {
+          gap: calcVWL(32);
+
+          :global(.ant-form-item) {
+            height: calcVWL(48);
+
+            :global(.ant-form-item-row) {
+              margin-top: calcVWL(13);
+            }
+          }
+        }
+
+        .focused {
+          :global {
+            .ant-form-item-label > label {
+              font-size: calcVWL(13);
+            }
+          }
+        }
+
+        :global(.ant-input) {
+          height: 35px;
+          padding: 0 0px calcVWL(5) 0;
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            variables.$black
+          );
+        }
+
+        :global(.ant-form-item-label) {
+          top: calcVWL(10);
+        }
+
+        :global {
+          .ant-form-item-label > label {
+            font-size: calcVWL(16);
+          }
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWL(30);
+          }
+
+          input[type="file"] {
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              transparent !important
+            );
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWL(-120);
+            margin-right: calcVWL(120);
+          }
+        }
+      }
+
+      .backImage {
+        width: calcVWL(1920);
+        left: calcVWL(-320);
+        bottom: calcVWL(-380);
+        height: calcVWL(1380);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .textWrapper {
+        gap: calcVWT(16);
+
+        .bigText {
+          @include font-style(
+            calcVWT(36),
+            variables.$fw-500,
+            normal,
+            variables.$black
+          );
+        }
+
+        .smallText {
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            variables.$black
+          );
+        }
+      }
+
+      .infoSection {
+        padding: 0 calcVWT(50);
+
+        .title {
+          font-weight: 500;
+          font-size: calcVWT(36);
+          line-height: calcVWT(44);
+          color: #ffffff;
+        }
+
+        .info {
+          font-weight: 400;
+          font-size: calcVWT(18);
+          line-height: calcVWT(24);
+          color: #ffffff;
+        }
+      }
+
+      .form {
+        width: 100%;
+        width: calcVWT(410);
+        max-width: calcVWT(410);
+
+        .inputWithIcon {
+          label {
+            left: calcVWT(32);
+          }
+
+          input {
+            padding-left: calcVWT(36);
+          }
+        }
+
+        .buttonWrapper {
+          margin: auto;
+        }
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              variables.$black
+            );
+            width: calcVWT(380);
+            margin-left: calcVWT(32);
+            max-height: calcVWT(36);
+          }
+
+          :global(.ant-input-suffix) {
+            @media (max-width: 576px) {
+              margin-top: 0;
+            }
+          }
+        }
+
+        .suffix {
+          width: calcVWT(24);
+          height: calcVWT(24);
+        }
+
+        .inputSection {
+          gap: calcVWT(32);
+          padding-bottom: calcVWT(10);
+          :global(.ant-form-item) {
+            height: calcVWT(48);
+            margin-bottom: calcVWT(10);
+
+            label {
+              font-size: calcVWT(18);
+            }
+
+            :global(.ant-form-item-row) {
+              margin-top: calcVWT(13);
+            }
+          }
+        }
+
+        .uploadItem:has(.asPlaceholder) {
+          top: calcVWT(12) !important;
+        }
+        .uploadItem {
+          label {
+            left: calcVWT(32);
+          }
+
+          .prefix {
+            width: calcVWT(24);
+            height: calcVWT(25);
+          }
+
+          .removeFile {
+            top: calcVWT(12);
+
+            img {
+              width: calcVWT(24);
+              height: calcVWT(24);
+            }
+          }
+        }
+
+        :global(.ant-input) {
+          padding: calcVWT(12) 0px calcVWT(5) 0;
+          border-bottom: 2px solid #ffffff;
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            variables.$black
+          );
+        }
+
+        .focused {
+          :global {
+            .ant-form-item-label > label {
+              font-size: calcVWT(13);
+            }
+          }
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWT(18);
+          }
+
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWT(65);
+          }
+
+          :global(.ant-checkbox-inner) {
+            width: calcVWT(20);
+            height: calcVWT(20);
+          }
+
+          .acceptText {
+            font-size: calcVWT(18);
+            line-height: calcVWT(24);
+
+            a {
+              font-size: calcVWT(18);
+              line-height: calcVWT(24);
+            }
+          }
+        }
+
+        :global(.ant-form-item) {
+          margin-bottom: calcVWT(20);
+
+          label {
+            font-size: calcVWT(13);
+            line-height: normal;
+          }
+        }
+
+        :global(.ant-checkbox-inner) {
+          width: calcVWT(20);
+          height: calcVWT(20);
+        }
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
+          width: calcVWT(20);
+          height: calcVWT(20);
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWT(30);
+          }
+
+          input[type="file"] {
+            padding: 0;
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              transparent !important
+            );
+            margin: 0;
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWT(-120);
+            margin-right: calcVWT(120);
+            color: variables.$black !important;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      .textWrapper {
+        gap: calcVWM(16);
+
+        .bigText {
+          @include font-style(
+            calcVWM(36),
+            variables.$fw-500,
+            normal,
+            variables.$black
+          );
+        }
+
+        .smallText {
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            variables.$black
+          );
+        }
+      }
+
+      .inputSection {
+        :global(.ant-form-item) {
+          height: calcVWM(48);
+          margin-bottom: calcVW(10);
+
+          label {
+            font-size: calcVW(18);
+            line-height: normal;
+          }
+
+          :global(.ant-form-item-row) {
+            margin-top: calcVWM(13);
+          }
+        }
+      }
+
+      .form {
+        width: 100%;
+        max-width: 100%;
+
+        .inputWithIcon {
+          label {
+            left: calcVWM(32);
+          }
+
+          input {
+            padding-left: calcVWM(36);
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: calcVWM(30);
+          }
+        }
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              variables.$black
+            );
+            width: calcVWM(280);
+            margin-left: calcVWM(32);
+            max-height: unset;
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: calcVWM(30);
+          }
+        }
+
+        .suffix {
+          width: calcVWM(24);
+          height: calcVWM(24);
+        }
+
+        :global(.ant-input-suffix) {
+          top: calcVWM(-1);
+        }
+
+        .suffix {
+          width: calcVWM(24);
+        }
+
+        :global(.ant-input) {
+          padding: calcVWM(5) 0;
+          border-bottom: 2px solid #ffffff;
+          height: calcVWM(30);
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            variables.$black
+          );
+        }
+
+        .inputSection {
+          gap: calcVWM(32);
+          padding-bottom: calcVWM(13);
+          :global(.ant-form-item) {
+            height: calcVWM(48);
+            margin-bottom: calcVWM(10);
+
+            label {
+              font-size: calcVWM(13);
+              line-height: normal;
+            }
+
+            :global(.ant-form-item-row) {
+              margin-top: calcVWM(13);
+            }
+          }
+        }
+
+        :global(.ant-form-item) {
+          margin-bottom: calcVWM(20);
+
+          label {
+            font-size: calcVWM(18);
+            line-height: normal;
+          }
+        }
+
+        .uploadItem {
+          label {
+            left: calcVWM(32);
+          }
+
+          .prefix {
+            width: calcVWM(15);
+            height: calcVWM(15);
+          }
+
+          .removeFile {
+            img {
+              width: calcVWM(20);
+              height: calcVWM(20);
+            }
+          }
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWM(18);
+          }
+
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWM(15);
+          }
+
+          :global(.ant-checkbox-inner) {
+            width: calcVWM(20);
+            height: calcVWM(20);
+          }
+
+          .acceptText {
+            font-size: calcVWM(18);
+            line-height: calcVWM(24);
+
+            a {
+              font-size: calcVWM(18);
+              line-height: calcVWM(24);
+              margin-left: calcVWM(4);
+            }
+          }
+        }
+
+        :global(.ant-checkbox) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+
+        :global(.ant-checkbox-inner) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWM(30);
+          }
+
+          input[type="file"] {
+            padding: 0;
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              transparent !important
+            );
+            margin: 0;
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWM(-115);
+            margin-right: calcVWM(115);
+            color: variables.$black !important;
+          }
+        }
+      }
+    }
+  }
+}
