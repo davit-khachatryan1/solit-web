@@ -216,7 +216,7 @@ const HomeContent = () => {
 
   return (
     <HomeMainWithImage
-      // firstImage={
+      firstImage={
         "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_D1oj6h7/1455a99c083542e58e6f71c99ff2f02d.webp"
       }
        // firstImage={
@@ -283,7 +283,7 @@ const HomeContent = () => {
           <div className={styles.borderedTextWhat}>
             <BorderedText img={process} />
           </div>
-          <Process />
+          {/* <Process /> */}
           <div
             className={`${styles.borderedTextWhat} ${styles.borderedTextWhatTop}`}
           >
