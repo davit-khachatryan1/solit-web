@@ -183,7 +183,6 @@ const Line = () => {
         const opacity = ((1) * (visiblePercentage - 14) * 50) / 100
         const width = part1RefBlue.current.children[0].offsetLeft + part1RefBlue.current.children[0].offsetWidth;
         part1RefBlue.current.children[0].style.opacity = opacity
-        console.log(width);
         part1RefBlue.current.style.width = `${width}px`;
       } else {
         part1RefBlue.current.children[0].style.opacity = 0;

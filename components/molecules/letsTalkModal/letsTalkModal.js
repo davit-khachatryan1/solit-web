@@ -91,9 +91,7 @@ const ModalLetsTalkForm = ({
           submitForm(values, data);
         }}
         className={styles.form}
-        onValuesChange={(changedValues, allValues) =>
-          console.log(changedValues, allValues, "kkkkkkkkkk")
-        }
+        
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
