@@ -219,7 +219,7 @@ const HomeContent = () => {
       firstImage={
         "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_D1oj6h7/1455a99c083542e58e6f71c99ff2f02d.webp"
       }
-       // firstImage={
+      // firstImage={
       //   "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
       // }
       seoName="main"
@@ -236,11 +236,13 @@ const HomeContent = () => {
             onClick={handleClickDiscuss}
           />
           <div className={styles.servicesMain}>
-            <div
-              className={`${styles.borderedText} ${styles.borderedTextBottom}`}
-            >
-              <BorderedText img={services} />
-            </div>
+            {services && (
+              <div
+                className={`${styles.borderedText} ${styles.borderedTextBottom}`}
+              >
+                <BorderedText img={services} />
+              </div>
+            )}
             <div className={styles.services}>
               {servicesData &&
                 [
@@ -263,11 +265,13 @@ const HomeContent = () => {
               onClick={() => router.push("/discuss-project")}
             />
           </Col>
-          <div
-            className={`${styles.borderedText} ${styles.borderedTextMargin}`}
-          >
-            <BorderedText img={aboutUs} />
-          </div>
+          {aboutUs && (
+            <div
+              className={`${styles.borderedText} ${styles.borderedTextMargin}`}
+            >
+              <BorderedText img={aboutUs} />
+            </div>
+          )}
         </div>
         <div className={styles.afterAboutContent}>
           <div className={styles.aboutContent}>
