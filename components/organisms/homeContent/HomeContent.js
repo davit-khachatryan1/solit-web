@@ -53,7 +53,6 @@ import ourProjects from "../../../assets/img/our_projects.svg";
 import testimonials from "../../../assets/img/testimonials.svg";
 import contacts from "../../../assets/img/contacts.svg";
 import technology from "../../../assets/img/technology.svg";
-import bgImage from "../../../assets/img/main_bg-test.png";
 
 import styles from "./HomeContent.module.scss";
 
@@ -217,11 +216,8 @@ const HomeContent = () => {
   return (
     <HomeMainWithImage
       firstImage={
-        "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_D1oj6h7/1455a99c083542e58e6f71c99ff2f02d.webp"
+        "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
       }
-      // firstImage={
-      //   "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
-      // }
       seoName="main"
     >
       <>
@@ -236,13 +232,11 @@ const HomeContent = () => {
             onClick={handleClickDiscuss}
           />
           <div className={styles.servicesMain}>
-            {services && (
-              <div
-                className={`${styles.borderedText} ${styles.borderedTextBottom}`}
-              >
-                <BorderedText img={services} />
-              </div>
-            )}
+            <div
+              className={`${styles.borderedText} ${styles.borderedTextBottom}`}
+            >
+              <BorderedText img={services} />
+            </div>
             <div className={styles.services}>
               {servicesData &&
                 [
@@ -265,13 +259,11 @@ const HomeContent = () => {
               onClick={() => router.push("/discuss-project")}
             />
           </Col>
-          {aboutUs && (
-            <div
-              className={`${styles.borderedText} ${styles.borderedTextMargin}`}
-            >
-              <BorderedText img={aboutUs} />
-            </div>
-          )}
+          <div
+            className={`${styles.borderedText} ${styles.borderedTextMargin}`}
+          >
+            <BorderedText img={aboutUs} />
+          </div>
         </div>
         <div className={styles.afterAboutContent}>
           <div className={styles.aboutContent}>
@@ -287,7 +279,7 @@ const HomeContent = () => {
           <div className={styles.borderedTextWhat}>
             <BorderedText img={process} />
           </div>
-          {/* <Process /> */}
+          <Process />
           <div
             className={`${styles.borderedTextWhat} ${styles.borderedTextWhatTop}`}
           >
@@ -310,16 +302,12 @@ const HomeContent = () => {
             </Paragraph>
             <div
               className={styles.description}
-              // dangerouslySetInnerHTML={{
-              //   __html: postsMainWhatWeDoTextApi
-              //     ? postsMainWhatWeDoTextApi[0].description
-              //     : "",
-              // }}
-            >
-              {postsMainWhatWeDoTextApi
-                ? postsMainWhatWeDoTextApi[0].description
-                : ""}
-            </div>
+              dangerouslySetInnerHTML={{
+                __html: postsMainWhatWeDoTextApi
+                  ? postsMainWhatWeDoTextApi[0].description
+                  : "",
+              }}
+            />
             {postsWhatWeDoApi &&
               [
                 ...postsWhatWeDoApi?.data_list.slice(0, 5),
