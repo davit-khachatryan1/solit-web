@@ -1,5 +1,5 @@
-import dynamic from "next/dynamic";
 import { memo } from "react";
+import dynamic from "next/dynamic";
 const Blogs = dynamic(() => import('../../components/organisms/blog/Blogs'));
 
 
