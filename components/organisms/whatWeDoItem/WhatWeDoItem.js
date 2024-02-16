@@ -2,7 +2,7 @@ import { memo, useCallback, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import { Paragraph, Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/career_bg.png"
 import { postsWhatWeDoDetailApi } from "../../../services/postsWhatWeDoDetailApi";

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ModalWrapper from "../../molecules/Modal/Modal";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import { Paragraph, Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
 import copyImage from "../../../assets/img/icons/copy-icon-25.png";

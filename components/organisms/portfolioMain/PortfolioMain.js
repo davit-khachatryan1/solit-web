@@ -8,9 +8,9 @@ const WhatToKnow = dynamic(() =>
 );
 import { Row } from "../../atoms";
 // import Portfolios from "../portfolios/Portfolios";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 // import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
-import { HomeMain } from "../homeMain";
+import HomeMain from '../homeMain/HomeMain'
 import bgImage from "../../../assets/img/main-bg-portfolio.png";
 
 import styles from "./PortfolioMain.module.scss";

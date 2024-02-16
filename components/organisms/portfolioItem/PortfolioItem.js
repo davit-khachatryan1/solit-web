@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Col, Row, SeoCard } from "../../atoms";
-import { HomeMainWithImage } from "../HomeMainWithImage";
-import { HomeMain } from "../homeMain";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
+import HomeMain from '../homeMain/HomeMain'
 import { portfolioApi } from "../../../services/portfolioApi";
 import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";

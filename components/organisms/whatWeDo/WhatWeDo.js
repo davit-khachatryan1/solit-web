@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { Row } from "../../atoms";
 import bgImage from "../../../assets/img/main-bg-what-we-do.png";
-import { HomeMain } from "../homeMain";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMain from '../homeMain/HomeMain'
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 const AboutItem = dynamic(() => import("../../molecules/aboutItem/AboutItem"));
 const WhatToKnow = dynamic(() =>
   import("../../molecules/whatToKnow/WhatToKnow")

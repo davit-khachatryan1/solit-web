@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { Slider } from "antd";
-import { HomeMain } from "../homeMain";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMain from '../homeMain/HomeMain'
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import { Col, Paragraph, Row, Checkbox, Form, FormItem } from "../../atoms";
 import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
 import Button from "../../molecules/button/Button";

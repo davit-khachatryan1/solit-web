@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import { Col, Row } from "../../atoms";
 import Image from "next/image";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import JobsTable from "../../molecules/jobsTable/JobsTable";
 import { useDispatch, useSelector } from "react-redux";
