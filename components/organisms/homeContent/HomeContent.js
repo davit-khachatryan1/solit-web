@@ -4,11 +4,11 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { Col, Paragraph } from "../../atoms";
-import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
-import HomeMain from '../homeMain/HomeMain'
+import HomeMainWithImage from "../HomeMainWithImage/HomeMainWithImage";
+import HomeMain from "../homeMain/HomeMain";
 import { ReversedAboutUs } from "../reversedAboutUs";
-import { Technology } from "../Technology";
-import { Process } from "../Process";
+import Technology from "../Technology/Technology";
+import Process from "../Process/Process";
 import { WorldMap } from "../WorldMap";
 
 const ServiceCard = dynamic(() =>
