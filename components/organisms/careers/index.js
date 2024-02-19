@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from "react";
-import { Col, Row } from "../../atoms";
+import { Row } from "../../atoms";
 import Image from "next/image";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
@@ -13,6 +13,7 @@ import user4 from "../../../assets/img/revers4.png";
 import worldMap from "../../../assets/img/career-world-pam.png";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import ModalWrapper from "../../molecules/Modal/Modal";
+import Col from "../../atoms/Col";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";

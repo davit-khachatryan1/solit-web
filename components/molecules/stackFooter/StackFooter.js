@@ -1,7 +1,8 @@
 import { memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Button from "../button/Button";
-import { Col, Row, Paragraph } from "../../atoms";
+import { Row, Paragraph } from "../../atoms";
+import Col from "../../atoms/Col";
 import close from "../../../assets/img/icons/closeIcon.svg";
 import closeGray from "../../../assets/img/icons/close.svg";
 import down from "../../../assets/img/down.svg";

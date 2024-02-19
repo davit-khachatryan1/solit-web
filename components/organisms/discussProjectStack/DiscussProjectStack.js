@@ -5,10 +5,11 @@ import Link from "next/link";
 import { Slider } from "antd";
 import HomeMain from '../homeMain/HomeMain'
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
-import { Col, Paragraph, Row, Checkbox, Form, FormItem } from "../../atoms";
-import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
+import { Paragraph, Row, Checkbox, Form, FormItem } from "../../atoms";
+import Col from "../../atoms/Col";
 import Button from "../../molecules/button/Button";
 import ModalWrapper from "../../molecules/Modal/Modal";
+import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
 import Industry from "../../molecules/Industry/Industry";
 import AddSpecialist from "../../molecules/AddSpecialist/AddSpecialist";
 import PricingModal from "../../molecules/pricingModal/PricingModal";

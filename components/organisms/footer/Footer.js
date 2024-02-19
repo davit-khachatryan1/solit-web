@@ -1,8 +1,9 @@
 import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Col from "../../atoms/Col";
 import { useSelector } from "react-redux";
-import { Col, Row, Paragraph } from "../../atoms";
+import { Row, Paragraph } from "../../atoms";
 import logoFooter from "../../../assets/img/bigLogo.png";
 
 import styles from "./Footer.module.scss";

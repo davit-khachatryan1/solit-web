@@ -1,10 +1,11 @@
 import { memo, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Col, Button as ShowMore } from "../../atoms";
+import { Button as ShowMore } from "../../atoms";
 
-const Button = dynamic(() => import("../../molecules/button/Button"),
-{ ssr: false });
+const Button = dynamic(() => import("../../molecules/button/Button"), {
+  ssr: false,
+});
 const HomeMainTexts = dynamic(() =>
   import("../../molecules/homeMainTexts/HomeMainTexts")
 );
@@ -12,6 +13,7 @@ const HomeMainTexts = dynamic(() =>
 // import Button from "../../molecules/button/Button";
 // import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import showMore from "../../../assets/img/angle-down.svg";
+import Col from "../../atoms/Col";
 
 import styles from "./HomeMain.module.scss";
 

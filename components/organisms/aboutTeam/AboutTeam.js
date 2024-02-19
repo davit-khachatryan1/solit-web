@@ -1,6 +1,6 @@
 import { memo } from "react";
 import Image from "next/image";
-import { Col, Paragraph, Row } from "../../atoms";
+import { Paragraph, Row } from "../../atoms";
 
 import styles from "./AboutTeam.module.scss";
 
@@ -10,7 +10,7 @@ const AboutTeam = ({ icon, title, description, onClick }) => {
   const moreText = "More";
   return (
     <div className={styles.aboutTeamWrapper}>
-      <Image src={icon} className={styles.icon} alt="image"/>
+      <Image src={icon} className={styles.icon} alt="image" />
       <Row className={styles.title}> Our React Native Developers</Row>
       <Row className={styles.context}>
         It is a long established fact that a reader will be distracted by the

@@ -7,7 +7,7 @@ export { default as Checkbox } from "./Checkbox";
 export { default as Table } from "./Table";
 export { default as Divider } from "./Divider";
 export { default as Row } from "./Row";
-export { default as Col } from "./Col";
+// export { default as Col } from "./Col";
 export { default as SeoCard } from "./SEO";
 export { default as ModalWrapper } from "./ModalWrapper";
 export { default as Layout } from "./Layout";

@@ -1,5 +1,6 @@
 import { memo, useEffect } from "react";
-import { Col, Paragraph } from "../../atoms";
+import { Paragraph } from "../../atoms";
+import Col from "../../atoms/Col";
 
 import styles from "./HomeMainTexts.module.scss";
 

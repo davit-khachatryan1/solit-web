@@ -3,7 +3,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { Col, Paragraph } from "../../atoms";
+import { Paragraph } from "../../atoms";
 import HomeMainWithImage from "../HomeMainWithImage/HomeMainWithImage";
 import HomeMain from "../homeMain/HomeMain";
 import { ReversedAboutUs } from "../reversedAboutUs";
@@ -55,6 +55,7 @@ import contacts from "../../../assets/img/contacts.svg";
 import technology from "../../../assets/img/technology.svg";
 
 import styles from "./HomeContent.module.scss";
+import Col from "../../atoms/Col";
 
 const HomeContent = () => {
   const [activeUser, setActiveUser] = useState(null);
