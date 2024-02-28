@@ -5,7 +5,8 @@ import Link from "next/link";
 import { Slider } from "antd";
 import HomeMain from '../homeMain/HomeMain'
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
-import { Paragraph, Row, Checkbox, Form, FormItem } from "../../atoms";
+import { Paragraph, Checkbox, Form, FormItem } from "../../atoms";
+import Row from "../../atoms/Row";
 import Col from "../../atoms/Col";
 import Button from "../../molecules/button/Button";
 import ModalWrapper from "../../molecules/Modal/Modal";

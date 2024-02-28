@@ -1,6 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Row, Paragraph } from "../../atoms";
+import { Paragraph } from "../../atoms";
+import Row from "../../atoms/Row";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 
 import styles from "./CompanyOfExperts.module.scss";

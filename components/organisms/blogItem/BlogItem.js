@@ -1,5 +1,6 @@
 import { memo, useCallback, useContext, useEffect, useState } from "react";
-import { Paragraph, Row, SeoCard } from "../../atoms";
+import { Paragraph, SeoCard } from "../../atoms";
+import Row from "../../atoms/Row";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import imageBG from "../../../assets/img/career_bg.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";

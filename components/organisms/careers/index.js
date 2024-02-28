@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from "react";
-import { Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
 import Image from "next/image";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";

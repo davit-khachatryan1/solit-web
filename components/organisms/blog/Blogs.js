@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
 import earth from "../../../assets/img/main-bg-blogs.png";
 import { useSelector } from "react-redux";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'

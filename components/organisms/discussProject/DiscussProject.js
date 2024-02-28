@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 import HomeMain from '../homeMain/HomeMain'
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import bgImage from "../../../assets/img/main-bg-discuss.png";
-import { Paragraph, Row, Checkbox, FormItem, Form } from "../../atoms";
+import { Paragraph, Checkbox, FormItem, Form } from "../../atoms";
+import Row from "../../atoms/Row";
 import Button from "../../molecules/button/Button";
 import Industry from "../../molecules/Industry/Industry";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
@@ -489,9 +490,9 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="applicationType">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data.map((item) => (
+                      {data.map((item,i) => (
                         <Col
-                          key={item}
+                          key={i}
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
@@ -524,9 +525,9 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="currentStage">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data1.map((item) => (
+                      {data1.map((item,i) => (
                         <Col
-                          key={item}
+                          key={i}
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }

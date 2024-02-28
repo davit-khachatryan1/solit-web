@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { Paragraph, Row } from "../../atoms";
+import { Paragraph } from "../../atoms";
+import Row from "../../atoms/Row";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import imageBG from "../../../assets/img/career_bg.png"
 import { useSelector } from "react-redux";

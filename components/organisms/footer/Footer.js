@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Col from "../../atoms/Col";
 import { useSelector } from "react-redux";
-import { Row, Paragraph } from "../../atoms";
+import { Paragraph } from "../../atoms";
+import Row from "../../atoms/Row";
 import logoFooter from "../../../assets/img/bigLogo.png";
 
 import styles from "./Footer.module.scss";

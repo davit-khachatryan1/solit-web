@@ -6,7 +6,8 @@ const Portfolios = dynamic(() => import("../portfolios/Portfolios"));
 const WhatToKnow = dynamic(() =>
   import("../../molecules/whatToKnow/WhatToKnow")
 );
-import { Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
 // import Portfolios from "../portfolios/Portfolios";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 // import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";

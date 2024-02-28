@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
 import Col from "../../atoms/Col";
 import Button from "../../molecules/button/Button";
 

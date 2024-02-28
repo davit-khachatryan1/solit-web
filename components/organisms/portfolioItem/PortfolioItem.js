@@ -2,7 +2,8 @@ import { memo, useCallback, useContext, useEffect, useRef, useState } from "reac
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Row, SeoCard } from "../../atoms";
+import { SeoCard } from "../../atoms";
+import Row from "../../atoms/Row";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import HomeMain from '../homeMain/HomeMain'
 import { portfolioApi } from "../../../services/portfolioApi";

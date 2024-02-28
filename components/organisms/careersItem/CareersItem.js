@@ -5,7 +5,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
-import { Paragraph, Row, SeoCard } from "../../atoms";
+import { Paragraph, SeoCard } from "../../atoms";
+import Row from "../../atoms/Row";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
 import copyImage from "../../../assets/img/icons/copy-icon-25.png";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";

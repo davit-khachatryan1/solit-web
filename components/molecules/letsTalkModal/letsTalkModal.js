@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from "react";
-import { Row, FormItem, Form, Checkbox } from "../../atoms";
+import { FormItem, Form, Checkbox } from "../../atoms";
+import Row from "../../atoms/Row";
 import Image from "next/image";
 import { Upload } from "antd";
 import Button from "../button/Button";

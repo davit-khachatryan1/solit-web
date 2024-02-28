@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { Paragraph, Row } from "../../atoms";
+import { Paragraph } from "../../atoms";
+import Row from "../../atoms/Row";
 import Image from "next/image";
 import Col from "../../atoms/Col";
 import close from "../../../assets/img/icons/closeIcon.svg";
