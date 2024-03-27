@@ -8,7 +8,7 @@ import error from "../../assets/img/404error.png";
 import styles from "./error.module.scss";
 
 export default function Custom404() {
-  return (
+  return ( 
     <Row>
       <Col className={styles.errorPage}>
         <Col className={styles.textSection}>
